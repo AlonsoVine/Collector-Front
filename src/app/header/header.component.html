@@ -1,74 +1,72 @@
 <nav id="nav" class="navbar navbar-expand-lg " style="color: 0066A1">
-  <img src="./assets/images/logo_eco.svg">
-  <a class="navbar">
-    <h1 id="eco">ALBUM-COLLECTOR</h1>
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <img class="icon" src="./assets/images/icons/icons8-book-64.png">
+    <a class="navbar">
+        <h1 id="eco">ALBUM-COLLECTOR</h1>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto col-12">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto col-12">
 
-      <li class="nav-item  mt-4" routerLinkActive="active">
-        <a class="nav-link" routerLink="/albumes">
-          <h4>Albumes</h4>
-        </a>
-      </li>
+            <li class="nav-item  mt-4" routerLinkActive="active">
+                <a class="nav-link" routerLink="/albumes">
+                    <h4>Albumes</h4>
+                </a>
+            </li>
 
-  <li class="nav-item dropdown mt-4" routerLinkActive="active">
-    <a class="nav-link" role="button" data-toggle="dropdown" aria-expanded="false">
-      <h4 class="dropdown-toggle" id="navbarDropdown"> Administracion</h4>
-    </a>
-    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-  <li class="nav-item " routerLinkActive="active" >
-    <a class="nav-link" routerLink="/vervehiculos/page/0">
-      <h4> Vehículos</h4>
-    </a>
-  </li>
+            <li class="nav-item dropdown mt-4" routerLinkActive="active">
+                <a class="nav-link" role="button" data-toggle="dropdown" aria-expanded="false">
+                    <h4 class="dropdown-toggle" id="navbarDropdown"> Administracion</h4>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li class="nav-item " routerLinkActive="active">
+                        <a class="nav-link" routerLink="/vervehiculos/page/0">
+                            <h4> Vehículos</h4>
+                        </a>
+                    </li>
 
-  <li class="nav-item " routerLinkActive="active">
-    <a class="nav-link" routerLink="/verdispositivos/page/0">
-      <h4> Dispositivos</h4>
-    </a>
-  </li>
+                    <li class="nav-item " routerLinkActive="active">
+                        <a class="nav-link" routerLink="/verdispositivos/page/0">
+                            <h4> Dispositivos</h4>
+                        </a>
+                    </li>
 
-  <li class="nav-item " routerLinkActive="active">
-    <a class="nav-link" routerLink="/vincular">
-      <h4>Vincular</h4>
-    </a>
-  </li>
+                    <li class="nav-item " routerLinkActive="active">
+                        <a class="nav-link" routerLink="/vincular">
+                            <h4>Vincular</h4>
+                        </a>
+                    </li>
 
-  <li class="nav-item" routerLinkActive="active">
-    <a class="nav-link" routerLink="/infraccion/page/0">
-      <h4>Infracciones</h4>
-    </a>
-  </li>
-  </div>
-  </li>
+                    <li class="nav-item" routerLinkActive="active">
+                        <a class="nav-link" routerLink="/infraccion/page/0">
+                            <h4>Infracciones</h4>
+                        </a>
+                    </li>
+                </div>
+            </li>
 
-  <li class="col-6"></li>
+            <li class="col-6"></li>
 
-  <li class="nav-item mt-4 mr-3" routerLinkActive="active">
-    <a class="nav-link" routerLink="/usuarios/detalle"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+            <li class="nav-item mt-4 mr-3" routerLinkActive="active">
+                <a class="nav-link" routerLink="/usuarios/detalle"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
         fill="currentColor" class="bi bi-person" id="user" viewBox="0 0 16 16">
         <path
           d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
       </svg></a>
-  </li>
+            </li>
 
-  <li class="nav-item mt-4" routerLinkActive="active">
-    <a class="nav-link" (click)="logOut()">
-      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-        fill="currentColor" class="bi bi-x" id="exit" viewBox="0 0 16 16">
+            <li class="nav-item mt-4" routerLinkActive="active">
+                <a class="nav-link" (click)="logOut()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-x" id="exit" viewBox="0 0 16 16">
         <path
           d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
       </svg>
-    </a>
-  </li>
+                </a>
+            </li>
 
-  </ul>
+        </ul>
 
-  </div>
+    </div>
 
 </nav>

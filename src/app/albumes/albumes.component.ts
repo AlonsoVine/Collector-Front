@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Album } from './album';
 import { AlbumesService } from './albumes.service';
 import { Usuario } from '../usuarios/usuario';
+import { UsuarioService } from '../usuarios/usuario.service';
 
 
 @Component({
@@ -13,18 +14,17 @@ import { Usuario } from '../usuarios/usuario';
 export class AlbumesComponent implements OnInit {
   
   id: string;
-  @Input() usuario: Usuario;
-  nombre: string;
-  juego: string;
-
+  usuario: Usuario;
   albums: Album[];
-
   paginador: any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private albumesService: AlbumesService
-  ) { }
+    private albumesService: AlbumesService,
+    private usuarioService: UsuarioService
+  ) {
+    this.usuario = this.usuarioService.usuario
+  }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(params => {

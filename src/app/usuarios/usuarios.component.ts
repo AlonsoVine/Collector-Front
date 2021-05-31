@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import  {Usuario }from "./usuario";
+import { Usuario } from "./usuario";
 import { UsuarioService } from './usuario.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert2';
@@ -14,39 +14,41 @@ import { tap } from 'rxjs/operators';
 export class UsuariosComponent implements OnInit {
 
   usuarios: Usuario[];
-  paginador:any;
+  paginador: any;
+
+  usuario: Usuario;
 
   constructor(
     private usuarioService: UsuarioService,
-    private router:Router,
+    private router: Router,
     private activatedRoute: ActivatedRoute
-  ){}
+  ) { }
 
-/*  ngOnInit(){
-    this.usuarioService.getUsuarios().pipe(tap(usuarios=>this.usuarios=usuarios)).subscribe();
-  }*/
+  /*  ngOnInit(){
+      this.usuarioService.getUsuarios().pipe(tap(usuarios=>this.usuarios=usuarios)).subscribe();
+    }*/
 
-  ngOnInit(){
-    this.activatedRoute.paramMap.subscribe(params=>{
-    let pagina:number=+params.get('pagina');
-    if(!pagina){
-      pagina=0;
-    }
-    this.usuarioService.getUsuarios(pagina)
-      .pipe(
-        tap((response:any) =>{
-          this.usuarios=response.content as Usuario[];
-          this.paginador=response;
-          console.log('UsuarioComponent: tap 3');
-          (response.content as Usuario[]).forEach(usuario=>{
-          console.log(usuario.email);
-          });
-        })
-      ).subscribe();
+  ngOnInit() {
+    this.activatedRoute.paramMap.subscribe(params => {
+      let pagina: number = +params.get('pagina');
+      if (!pagina) {
+        pagina = 0;
+      }
+      this.usuarioService.getUsuarios(pagina)
+        .pipe(
+          tap((response: any) => {
+            this.usuarios = response.content as Usuario[];
+            this.paginador = response;
+            console.log('UsuarioComponent: tap 3');
+            (response.content as Usuario[]).forEach(usuario => {
+              console.log(usuario.email);
+            });
+          })
+        ).subscribe();
     });
   }
 
-  delete(usuario:Usuario):void{
+  delete(usuario: Usuario): void {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: 'btn btn-success',
@@ -65,8 +67,8 @@ export class UsuariosComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.usuarioService.delete(usuario.username).subscribe(
-          response=>{
-            this.usuarios=this.usuarios.filter(user=>user!==usuario)
+          response => {
+            this.usuarios = this.usuarios.filter(user => user !== usuario)
             swalWithBootstrapButtons.fire(
               'Eliminado',
               `El usuario ${usuario.username} fue eliminado con exíto!`,

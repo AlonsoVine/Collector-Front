@@ -1,9 +1,20 @@
 img {
-    box-shadow: 0px 1px, 6px 1px rgba(0, 0, 0, 0.75);
+    filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.75));
     margin-bottom: 20px;
 }
 
-.img:hover{
+.img:hover {
     transform: scale(1.1);
 }
 
+.datos-album {
+    background-color: rgba(255, 255, 255, 0.65);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}

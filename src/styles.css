@@ -1,27 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
-html{
-  min-height: 100%;
-  position: relative;
-}
-body{
-  margin:0;
-  margin-bottom: 60px;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  /*
-  background-color:white;*/
-  background-image: url(./assets/images/2.jpg);
-  background-size: cover;
-  color: black;
 
+html {
+    min-height: 100%;
+    position: relative;
 }
-footer{
-  position: absolute; /* position: fixed; */
-  bottom: 0px;
-  height: 60px;
-  color: white;
-  width: 100%;
 
+body {
+    margin: 0;
+    margin-bottom: 60px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: white;
+    background-image: url(./assets/images/bg/3.jpg);
+    background-size: cover;
+    color: black;
 }
-.wrap{
-  padding-bottom: 60px;
+
+footer {
+    position: absolute;
+    /* position: fixed; */
+    bottom: 0px;
+    height: 60px;
+    color: white;
+    width: 100%;
+}
+
+.wrap {
+    padding-bottom: 60px;
 }
