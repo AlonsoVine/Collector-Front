@@ -1,0 +1,44 @@
+#nav{
+  box-shadow: 2px 2px 5px #999;
+  color:#0066A1;
+  background-color: white;
+}
+a{
+  text-decoration:none;
+  color:#0066A1;
+}
+img{
+  width: 3%;
+}
+#user{
+  margin-left: 12px;
+  padding-right: 0px;
+}
+#eco{
+  margin-top: 23px;
+}
+#li_realizarViaje{
+  padding-left: 10px;
+  /* width: 116px;
+  padding: 0 10px; */
+}
+#viaje{
+  padding-right:0px ;
+  width: 60px;
+  padding-left:0px ;
+}
+h4{
+  margin-bottom: 15px;
+}
+h4:hover{
+  border-bottom:solid 1px #0066A1;
+}
+#exit:hover{
+  width: 40px;
+  height: 40px;
+}
+
+#user:hover{
+  width: 40px;
+  height: 40px;
+}
