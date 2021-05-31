@@ -37,7 +37,7 @@ export class FormComponent implements OnInit {
     })
   }
 
-  cargarUsuario2(id: number): void {
+  cargarDatosUsuario(id: number): void {
     console.log("cadw" + id);
     this.usuarioService.getUsuario(id).subscribe((usuario) => {
       this.setUsuario(usuario);
