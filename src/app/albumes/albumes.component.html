@@ -5,13 +5,10 @@
         </div>
 
         <div class="col-8">
-            <br>
-            <br>
-            <hr>
-
+            
             <!---BUSCADOR-->
             <form class="form-inline md-form form-sm" *ngIf="albums.length > 8">
-                <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Nombre de album" aria-label="Search" mdbInput>
+                <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Busca tu album" aria-label="Search" mdbInput>
                 <button type="submit" class="btn btn-primary">
                 <i class="bi bi-search"></i>
                 <span class="fa fa-search"></span>
@@ -19,10 +16,21 @@
               </button>
             </form>
 
-            <br>
+            <hr>
 
             <!---LISTADOR-->
-            <h1>MIS ALBUMES</h1>
+            <div class="row">
+                <div class="col-4">
+                    <h1>MIS ALBUMES</h1>
+                </div>
+                <div class="col-5"></div>
+                <div class="col-3">
+                    <button class="btn btn-primary" type="button" name="button"  [routerLink]="['/nuevoAlbum']">
+                        <i class="bi bi-search"></i>
+                        Nuevo Album
+                    </button>
+                </div>
+            </div>
             <div class="container">
                 <div class="row">
 
