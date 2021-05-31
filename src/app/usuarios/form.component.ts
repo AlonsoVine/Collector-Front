@@ -5,14 +5,14 @@ import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-form',
+  selector: 'app-form-usuario',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
 
   usuario: Usuario = new Usuario();
-  titulo: string = "Editar Datos";
+  titulo: string = "Crear Cuenta";
   errores: string[];
 
   constructor(
@@ -37,7 +37,7 @@ export class FormComponent implements OnInit {
     })
   }
 
-  cargarUsuario2(id: number): void {
+  cargarDatosUsuario(id: number): void {
     console.log("cadw" + id);
     this.usuarioService.getUsuario(id).subscribe((usuario) => {
       this.setUsuario(usuario);

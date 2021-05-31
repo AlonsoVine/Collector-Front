@@ -1,0 +1,34 @@
+<div class="row">
+
+  <div class="col-3"></div>
+
+  <div class="card col-6 row">
+    <div class="card-header row">
+      <div class="col-1"></div>
+      <div class= " col-5 primerTitulo">
+        <h2>DATOS PERSONALES</h2>
+      </div>
+      <div class="col-3"></div>
+      <div class="col-2">
+        <button class="btn btn-primary botonEditar" type="button" name="button" [routerLink]="['/editarPerfil']">
+          <i class="bi bi-search"></i>
+          Editar
+        </button>
+      </div>
+      <div class="col-1"></div>
+    </div>
+   <div class=" container row" >
+    <div class="card-body text-dark col-6 ">
+      <h3 class="card-title">Nombre:</h3>
+      <p class="card-text ml-3">{{usuario.username}}</p>
+      <h3 class="card-title">E-mail:</h3>
+      <p class="card-text ml-3">{{usuario.email}}</p>
+      
+      <p class="card-text ml-3">¿total de albumes?</p>
+    </div>
+    </div>
+  </div>
+
+  <div class="col-3"></div>
+
+</div>
