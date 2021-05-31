@@ -6,6 +6,7 @@ export class Carta {
   convertedManaCost: number;
   colors: string;
   rarity: string;
+  setCode: string;
   scryfallId: string;
   scryfallIllustrationId: string;
   scryfallOracleId: string;

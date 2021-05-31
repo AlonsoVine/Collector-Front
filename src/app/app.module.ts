@@ -7,8 +7,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import localeES from '@angular/common/locales/es';
-import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -19,12 +19,14 @@ import { FormComponent } from './usuarios/form.component';
 import { LoginComponent } from './usuarios/login.component';
 
 import { UsuarioService } from './usuarios/usuario.service';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 /*--------------------------------------------*/
 
 import { AlbumesComponent } from './albumes/albumes.component';
 import { AlbumesService } from './albumes/albumes.service';
+import { AlbumComponent } from './album/album.component';
+import { AlbumService } from './album/album.service';
+import { CartaService } from './album/carta.service';
 
 registerLocaleData(localeES, 'es');
 
@@ -36,7 +38,8 @@ const routes: Routes = [
   { path: 'usuarios/form', component: FormComponent },
   { path: 'usuarios/form/:id', component: FormComponent },
   { path: 'usuarios/login', component: LoginComponent },
-  { path: 'albumes', component: AlbumesComponent }
+  { path: 'albumes', component: AlbumesComponent },
+  { path: 'album/:id', component: AlbumComponent }
 ]
 
 @NgModule({
@@ -48,7 +51,8 @@ const routes: Routes = [
     FormComponent,
     HomeComponent,
     LoginComponent,
-    AlbumesComponent
+    AlbumesComponent,
+    AlbumComponent
   ],
   imports: [
     BrowserModule,
@@ -58,13 +62,14 @@ const routes: Routes = [
     BrowserAnimationsModule,
     MatDatepickerModule,
     MatMomentDateModule,
-    GooglePlaceModule,
     MatProgressBarModule
   ],
   providers: [
     UsuarioService,
     FormComponent,
     AlbumesService,
+    AlbumService,
+    CartaService,
     { provide: LOCALE_ID, useValue: 'es' }
   ],
   bootstrap: [AppComponent]

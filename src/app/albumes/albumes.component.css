@@ -1,10 +1,17 @@
-img {
+ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.album {
     filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.75));
     margin-bottom: 20px;
 }
 
-.img:hover {
-    transform: scale(1.1);
+.album:hover {
+    transform: scale(1.02);
+    transition: transform .2s;
 }
 
 .datos-album {
@@ -14,7 +21,7 @@ img {
     margin-bottom: 10px;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
+.link-album {
+    color: royalblue;
+    text-decoration: none;
 }

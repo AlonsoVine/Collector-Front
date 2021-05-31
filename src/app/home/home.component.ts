@@ -8,13 +8,13 @@ import { Usuario } from '../usuarios/usuario';
 })
 export class HomeComponent implements OnInit {
 
-  usuario: Usuario=new Usuario();
+  usuario: Usuario = new Usuario();
 
   constructor(
   ) { }
 
   ngOnInit(): void {
-    this.usuario=JSON.parse(sessionStorage.getItem("usuariologueado"));
+    this.usuario = JSON.parse(sessionStorage.getItem("usuariologueado"));
     console.log(this.usuario);
 
   }

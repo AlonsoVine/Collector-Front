@@ -13,9 +13,9 @@ export class AlbumService {
   ) { }
 
   getPaginaAlbum(id:number, page: number): Observable<any>{
-    this.url = "https://localhost:8080/collector/album";
+    this.url = "http://localhost:8080/collector/album";
     let params = new HttpParams().set("page", page.toString());
-    return this.http.get(`${id}/${page}`,{params:params}).pipe(
+    return this.http.get(`${this.url}/${id}/${page}`,{params:params}).pipe(
       map((response: any) => {
         (response.content as Carta[]).map(album => {
           return album;

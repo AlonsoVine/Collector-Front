@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-//import {USUARIOS} from "./usuarios.json";
 import { Usuario } from './usuario';
 import { of, Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { map, catchError, tap } from 'rxjs/operators';
-import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Injectable()
 export class UsuarioService {

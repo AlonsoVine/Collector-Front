@@ -34,10 +34,12 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-4" *ngFor="let album of albums">
-                                    <li>
-                                        <img src="./assets/images/album/ultra-pro-1.png" class="rounded album" width="100%" height="100%">
-                                        <div class="datos-album">Nombre: {{album.nombre}}</div>
-                                        <br>
+                                    <li routerLinkActive="active">
+                                        <a class="link-album" routerLink="/album/{{album.id}}">
+                                            <img src="./assets/images/album/ultra-pro-1.png" class="rounded album" width="100%" height="100%">
+                                            <div class="datos-album">Nombre: {{album.nombre}}</div>
+                                            <br>
+                                        </a>
                                     </li>
                                 </div>
                             </div>

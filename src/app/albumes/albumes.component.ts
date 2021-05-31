@@ -12,7 +12,7 @@ import { UsuarioService } from '../usuarios/usuario.service';
   styleUrls: ['./albumes.component.css']
 })
 export class AlbumesComponent implements OnInit {
-  
+
   id: string;
   usuario: Usuario;
   albums: Album[];
@@ -37,7 +37,7 @@ export class AlbumesComponent implements OnInit {
     })
   }
 
-  obtenerAlbumes (pagina: number) {
+  obtenerAlbumes(pagina: number) {
     this.albumesService.getAlbumes(this.usuario.username, pagina.toString()).subscribe(
       response => {
         this.albums = response.content as Album[];

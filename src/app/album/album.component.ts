@@ -1,5 +1,5 @@
-import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { AlbumService } from './album.service';
 import { Carta } from './carta';
 import { CartaService } from './carta.service';
@@ -17,18 +17,32 @@ export class AlbumComponent implements OnInit {
 
   constructor(
     private cartaService: CartaService,
-    private albumService: AlbumService
+    private albumService: AlbumService,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.obtenerCartas();
+    
+    this.activatedRoute.paramMap.subscribe(params => {
+      this.pagina = +params.get('page');
+      if (!this.pagina) {
+        this.pagina = 0;
+      }
+
+      this.id_album = +params.get('id')
+
+      console.log(this.id_album);
+
+      this.obtenerCartas();
+    })
   }
 
   obtenerCartas(): void {
     this.albumService.getPaginaAlbum(this.id_album, this.pagina).subscribe(response => {
-      (this.cartas = response.content as Carta[])
-        .forEach(carta => {
-          this.cartaService.getImagenesCarta(carta).subscribe()
+      this.cartas = response.content as Carta[];
+      this.cartas.forEach(carta => {
+          this.cartaService.getCarta(carta).subscribe();
+          this.cartaService.getImagenesCarta(carta).subscribe();
         })
     })
   }
