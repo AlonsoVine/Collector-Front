@@ -13,7 +13,7 @@ export class AlbumesService {
   ) { }
 
   getAlbumes(username:string, page: string): Observable<any>{
-    this.url = "https://localhost:8080/collector/user";
+    this.url = "http://localhost:8080/collector/user";
     let params = new HttpParams().set("page", page);
     return this.http.get(`${this.url}/${username}/albums`,{params:params}).pipe(
       map((response: any) => {
@@ -27,7 +27,7 @@ export class AlbumesService {
   }
 
   getPagina(id: string, page: string): Observable<any>{
-    this.url = "https://localhost:8080/collector/album";
+    this.url = "http://localhost:8080/collector/album";
     return this.http.get(`${this.url}/${id}/${page}`).pipe(
       map((response: any) => {
         (response.content.externalId as string[]).map(carta => {
