@@ -34,7 +34,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, },
   { path: 'usuarios', component: UsuariosComponent, },
   { path: 'usuarios/pg/:pagina', component: UsuariosComponent },
-  { path: 'usuarios/form', component: FormComponent },
+  { path: 'crearCuenta', component: FormComponent },
   { path: 'usuarios/form/:id', component: FormComponent },
   { path: 'usuarios/login', component: LoginComponent },
   { path: 'perfil', component: UsuariodetalleComponent},
