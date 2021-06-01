@@ -2,7 +2,6 @@
     box-shadow: 2px 2px 5px #999;
     color: #0066A1;
     background-color: white;
-    
     position: fixed;
     display: block;
     width: 100%;
@@ -44,6 +43,7 @@ h4:hover {
 
 #exit:hover {
     transform: scale(125%);
+    cursor: pointer;
 }
 
 #user:hover {

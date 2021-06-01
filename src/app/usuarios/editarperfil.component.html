@@ -6,26 +6,41 @@
         <div class="cad-body row col-12 text-center mx-0 alturaminima">
             <div class="col-12">
                 <form #formularioVehiculo="ngForm" method="post">
+
                     <div class="form-group row mt-4">
-                        <label for="nombre" class="col-form-label col-6 text-left mt-1">Nombre</label>
+                        <label for="username" class="col-form-label col-6 text-left mt-1">Username</label>
                         <div class="inputFormulario p 0">
-                            <input type="text" class="form-control" name="nombre"
-                                 required disabled>
+                            <input type="text" class="form-control" name="username" placeholder="{{usuario.username}}">
                         </div>
                     </div>
 
+                    <div class="form-group row mt-4">
+                        <label for="nombre" class="col-form-label col-6 text-left mt-1">Nombre</label>
+                        <div class="inputFormulario p 0">
+                            <input type="text" class="form-control" name="nombre" placeholder="{{usuario.nombre}}">
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-4">
+                        <label for="email" class="col-form-label col-6 text-left mt-1">E-Mail</label>
+                        <div class="inputFormulario p 0">
+                            <input type="text" class="form-control" name="email" placeholder="{{usuario.email}}">
+                        </div>
+                    </div>
+
+
                     <div class="form-group row">
-                        <div class="col-12">
+                        <div class="col-12 m-2">
                             <button class="btn btn-primary" role="button" (click)='editar()'>
                                 <i class="bi bi-search"></i>
-                                Editar
+                                Guardar
                             </button>
                         </div>
                     </div>
+
                 </form>
             </div>
 
         </div>
     </div>
 </div>
-

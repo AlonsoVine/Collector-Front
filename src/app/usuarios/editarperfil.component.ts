@@ -12,13 +12,16 @@ import { UsuarioService } from './usuario.service';
 })
 export class EditarPerfilComponent implements OnInit {
 
-  usuario: Usuario = new Usuario();
+  usuario: Usuario;
 
   constructor(
     private usuarioService: UsuarioService,
     private router:Router,
     private activatedRoute: ActivatedRoute
-  ) { }
+  ) {
+    this.usuario = usuarioService.usuario
+
+   }
 
   ngOnInit(): void {
     this.cargarVehiculo()
