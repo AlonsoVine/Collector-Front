@@ -22,7 +22,7 @@ export class AlbumComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    
+
     this.activatedRoute.paramMap.subscribe(params => {
       this.pagina = +params.get('page');
       if (!this.pagina) {
@@ -30,8 +30,6 @@ export class AlbumComponent implements OnInit {
       }
 
       this.id_album = +params.get('id')
-
-      console.log(this.id_album);
 
       this.obtenerCartas();
     })
@@ -41,12 +39,14 @@ export class AlbumComponent implements OnInit {
     this.albumService.getPaginaAlbum(this.id_album, this.pagina).subscribe(response => {
       this.cartas = response.content as Carta[];
       this.cartas.forEach(carta => {
-          this.cartaService.getCarta(carta).subscribe();
+        this.cartaService.getCarta(carta).subscribe(() => {
+          // Primero todos los textos y luego todas las imagenes
           this.cartaService.getImagenesCarta(carta).subscribe();
-        })
+        });
+        // Imagen y texto de una en una
+        // this.cartaService.getImagenesCarta(carta).subscribe();
+      })
     })
   }
-
-
 
 }
