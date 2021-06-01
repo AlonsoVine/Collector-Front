@@ -24,6 +24,7 @@ import { UsuarioService } from './usuarios/usuario.service';
 
 import { AlbumesComponent } from './albumes/albumes.component';
 import { AlbumesService } from './albumes/albumes.service';
+import { FormAlbumComponent } from './albumes/formalbum.component';
 import { AlbumComponent } from './album/album.component';
 import { AlbumService } from './album/album.service';
 import { CartaService } from './album/carta.service';
@@ -34,16 +35,16 @@ const routes: Routes = [
   { path: '', redirectTo: '/usuarios/login', pathMatch: 'full' },
   { path: 'inicio', component: InicioComponent },
   { path: 'home', component: HomeComponent, },
+  { path: 'crearCuenta', component: FormComponent },
   { path: 'usuarios', component: UsuariosComponent, },
   { path: 'usuarios/pg/:pagina', component: UsuariosComponent },
-  { path: 'crearCuenta', component: FormComponent },
   { path: 'usuarios/form/:id', component: FormComponent },
   { path: 'usuarios/login', component: LoginComponent },
+  { path: 'perfil', component: UsuariodetalleComponent},
   { path: 'albumes', component: AlbumesComponent },
   { path: 'album/:id', component: AlbumComponent },
-  { path: 'perfil', component: UsuariodetalleComponent},
   { path: 'editarPerfil', component: EditarPerfilComponent},
-  { path: 'albumes', component: AlbumesComponent }
+  { path: 'crearAlbum', component: FormAlbumComponent }
 ]
 
 @NgModule({
@@ -59,6 +60,7 @@ const routes: Routes = [
     HomeComponent,
     LoginComponent,
     AlbumesComponent,
+    FormAlbumComponent,
     AlbumComponent
   ],
   imports: [
@@ -79,6 +81,7 @@ const routes: Routes = [
     CartaService,
     UsuariodetalleComponent,
     EditarPerfilComponent,
+    FormAlbumComponent,
     { provide: LOCALE_ID, useValue: 'es' }
   ],
   bootstrap: [AppComponent]

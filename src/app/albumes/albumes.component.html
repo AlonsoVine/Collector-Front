@@ -24,8 +24,9 @@
                     <h1>MIS ALBUMES</h1>
                 </div>
                 <div class="col-5"></div>
-                <div class="col-3">
-                    <button class="btn btn-primary" type="button" name="button"  [routerLink]="['/nuevoAlbum']">
+                <div class="col-3"><!---Me he quedado dandole añadir
+                     album-->
+                    <button class="btn btn-primary" type="button" name="button"  [routerLink]="['/crearAlbum']">
                         <i class="bi bi-search"></i>
                         Nuevo Album
                     </button>
@@ -45,7 +46,7 @@
                                     <li routerLinkActive="active">
                                         <a class="link-album" routerLink="/album/{{album.id}}">
                                             <img src="./assets/images/album/ultra-pro-1.png" class="rounded album" width="100%" height="100%">
-                                            <div class="datos-album">Nombre: {{album.nombre}}</div>
+                                            <div class="datos-album">{{album.nombre}}</div>
                                             <br>
                                         </a>
                                     </li>
