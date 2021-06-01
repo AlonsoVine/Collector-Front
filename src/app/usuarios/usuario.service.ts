@@ -42,7 +42,7 @@ export class UsuarioService {
   }
 
   getUsuarios(pagina: number): Observable<any[]> {
-    this.url = "http://localhost:8082/ecomove/v0.1/usuarios/pg/";
+    this.url = "http://localhost:8080/collector/usuarios";
     return this.http.get(this.url + pagina).pipe(
       tap((response: any) => {
         console.log('UsuarioService: tap 1');
