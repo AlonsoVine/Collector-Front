@@ -5,7 +5,7 @@
 
     <div class="col-4"></div>
 
-    <div class="card row col-4 text-center sinMargenes">
+    <div class="card col-4 text-center sinMargenes">
         <div class="card-header text-center">Bienvenido a <strong id="resaltarAzul"> Album Collector</strong></div>
         <div class="box cad-body">
             <form (ngSubmit)="loguear()" action="index.html" method="post">
@@ -20,7 +20,7 @@
                     <label><strong id="resaltarAzul">Password</strong></label>
                 </div>
                 <div>
-                    <button class="btn" role="button" style="border: solid 2px;">Entrar</button>
+                    <button class="btn margenAbajo" role="button" style="border: solid 2px;">Entrar</button>
                 </div>
 
             </form>
@@ -28,11 +28,17 @@
     </div>
 
     <div class="col-1"></div>
-    <div class="card row col-3 text-center sinMargenes">
-        <div class="card-header text-center"><strong>¿Aún no tienes cuenta?</strong></div>
-        <div class="box cad-body">
-            <div class="my-2 text-center">
-                <button class="btn btn-rounden btn-info" type="button" name="button" [routerLink]="['/crearCuenta']">Crear Usuario</button>
+    <div class="col-3">
+        <div class="row">
+            <div class="card text-center sinMargenes">
+
+                <div class="card-header text-center"><strong>¿Aún no tienes cuenta?</strong></div>
+                <div class="box cad-body">
+                    <div class="my-2 text-center">
+                        <button class="btn btn-rounden btn-info" type="button" name="button"
+                            [routerLink]="['/crearCuenta']">Crear Usuario</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
