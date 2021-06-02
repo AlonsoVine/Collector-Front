@@ -1,79 +1,81 @@
 /* background-image: url("../assets/images/fondo.jpg"); */
-#app-form{
-  background-color: black;
+
+#app-form {
+    background-color: black;
 }
 
 .img_logo {
-  width: 90%;
+    width: 90%;
 }
 
 .card {
-  color: black;
-  border-radius: 10px;
+    color: black;
+    border-radius: 10px;
 }
 
 .btn {
-  background-color: #0066A1;
-  border-radius: 10px;
-  color: white;
+    width: 55%;
+    background-color: #0066A1;
+    border-radius: 10px;
+    color: white;
 }
 
 #resaltarAzul {
-  color: #0066A1;
-  padding-left: 15px;
-  padding-right: 15px;
-
+    color: #0066A1;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .card {
-  box-shadow: 0 30px 50px rgba(0, 0, 0, .5);
+    box-shadow: 0 30px 50px rgba(0, 0, 0, .5);
 }
 
-.inputBox{
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-bottom: 17px;
+.inputBox {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 17px;
 }
 
 .box .inputBox {
-  position: relative;
+    position: relative;
 }
 
 .box .inputBox input {
-  width: 100%;
-  padding: 10% 0;
-  font-size: 16px;
-  color: black;
-  letter-spacing: 1px;
-  margin-bottom: 30px;
-  border: none;
-  border-bottom: 1px solid #0066A1;
-  outline: none;
-  background: transparent;
-  /*hace trasparente el hueco del formulario */
+    width: 100%;
+    padding-top: 12%;
+    padding-bottom: 2%;
+    font-size: 16px;
+    color: black;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid #0066A1;
+    outline: none;
+    background: transparent;
+    /*hace trasparente el hueco del formulario */
 }
 
 .box .inputBox label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 10% 0;
-  font-size: 16px;
-  letter-spacing: 1px;
-  color: #0066A1;
-  pointer-events: none;
-  transition: .5s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10% 0;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #0066A1;
+    pointer-events: none;
+    transition: .5s;
 }
 
 .box .inputBox input:focus~label,
 .box .inputBox input:valid~label {
-  top: -30px;
-  left: 0;
-  color: #0066A1;
-  font-size: 12px;
+    top: -20px;
+    left: 0;
+    color: #0066A1;
+    font-size: 12px;
 }
 
-.sinMargenes{
-  padding-right: 0px;
-  padding-left: 0px;
+.sinMargenes {
+    padding-right: 0px;
+    padding-left: 0px;
 }
