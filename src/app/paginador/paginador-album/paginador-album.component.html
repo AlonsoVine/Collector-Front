@@ -2,32 +2,32 @@
     <ul *ngIf="paginas?.length>0" class="fondo pagination mt-3">
     
       <li class="page-item" [ngClass]="paginador.first?'disabled page-item':'page-item'">
-        <a class="page-link color" [routerLink]="['/album/{{album.id}}/page',0]">Primera</a>
+        <a class="page-link color" [routerLink]="['/album', album.id, '/page',0]">Primera</a>
       </li>
     
       <li class="page-item" *ngIf="paginador.number>0">
-        <a class="page-link color" [routerLink]="['/album/{{album.id}}/page',paginador.number-1]">&laquo;</a>
+        <a class="page-link color" [routerLink]="['/album', album.id, '/page',paginador.number-1]">&laquo;</a>
       </li>
     
       <li class="page-item" *ngIf="paginador.first">
-        <a class="page-link color" [routerLink]="['/album/{{album.id}}/page',paginador.totalPages-1]">&laquo;</a>
+        <a class="page-link color" [routerLink]="['/album', album.id, '/page',paginador.totalPages-1]">&laquo;</a>
       </li>
     
       <li class="page-item" *ngFor="let pagina of paginas" [ngClass]="pagina-1 == paginador.number?'active':''">
         <span class="border activo" *ngIf="pagina-1 == paginador.number">{{pagina}}</span>
-        <a class="page-link color" *ngIf="pagina-1 != paginador.number" [routerLink]="['/album/{{album.id}}/page',pagina-1]">{{pagina}}</a>
+        <a class="page-link color" *ngIf="pagina-1 != paginador.number" [routerLink]="['/album', album.id, '/page',pagina-1]">{{pagina}}</a>
       </li>
     
       <li class="page-item" *ngIf="paginador.number < paginador.totalPages-1">
-        <a class="page-link color" [routerLink]="['/album/{{album.id}}/page',paginador.number+1]">&raquo;</a>
+        <a class="page-link color" [routerLink]="['/album', album.id, '/page',paginador.number+1]">&raquo;</a>
       </li>
     
       <li class="page-item" *ngIf="paginador.last">
-        <a class="page-link color" [routerLink]="['/album/{{album.id}}/page',0]">&raquo;</a>
+        <a class="page-link color" [routerLink]="['/album', album.id, '/page',0]">&raquo;</a>
       </li>
     
       <li class="page-item" [ngClass]="paginador.last?'disabled page-item':'page-item'">
-        <a class="page-link color" [routerLink]="['/album/{{album.id}}/page',paginador.totalPages-1]">Última</a>
+        <a class="page-link color" [routerLink]="['/album', album.id, '/page',paginador.totalPages-1]">Última</a>
       </li>
     
     </ul>

@@ -12,11 +12,10 @@ import { CartaService } from './carta.service';
   styleUrls: ['./album.component.css']
 })
 export class AlbumComponent implements OnInit {
+  
   album: Album;
   id_album: number;
-  pagina: number;
   cartas: Carta[];
-
   paginador: any;
 
   constructor(
@@ -30,8 +29,8 @@ export class AlbumComponent implements OnInit {
 
     this.activatedRoute.paramMap.subscribe(params => {
       let pagina = +params.get('page');
-      if (!this.pagina) {
-        this.pagina = 0;
+      if (!pagina) {
+        pagina = 0;
       }
 
       this.id_album = +params.get('id')
@@ -40,13 +39,13 @@ export class AlbumComponent implements OnInit {
         this.album = response as Album;
       });
 
-      this.obtenerCartas();
+      this.obtenerCartas(pagina);
       
     })
   }
 
-  obtenerCartas(): void {
-    this.albumService.getPaginaAlbum(this.id_album, this.pagina).subscribe(response => {
+  obtenerCartas(pagina: number): void {
+    this.albumService.getPaginaAlbum(this.id_album, pagina).subscribe(response => {
       this.cartas = response.content as Carta[];
       this.cartas.forEach(carta => {
         this.cartaService.getCarta(carta).subscribe(() => {
@@ -56,6 +55,7 @@ export class AlbumComponent implements OnInit {
         // Imagen y texto de una en una
         // this.cartaService.getImagenesCarta(carta).subscribe();
       })
+      this.paginador = response;
     })
   }
 
