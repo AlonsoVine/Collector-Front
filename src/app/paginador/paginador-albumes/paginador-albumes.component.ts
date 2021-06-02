@@ -1,11 +1,11 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
-  selector: 'app-paginador-album',
-  templateUrl: './paginador-album.component.html',
-  styleUrls: ['./paginador-album.component.css']
+  selector: 'app-paginador-albumes',
+  templateUrl: './paginador-albumes.component.html',
+  styleUrls: ['./paginador-albumes.component.css']
 })
-export class PaginadorAlbumComponent implements OnInit {
+export class PaginadorAlbumesComponent implements OnInit {
 
   @Input() paginador:any;
 

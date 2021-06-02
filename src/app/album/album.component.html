@@ -8,7 +8,7 @@
                 </div>
 
                 <div class="col-8">
-                    <h1>Cartas</h1>
+                    <h1>{{album.nombre}}</h1>
                     <hr>
 
                     <form class="form-inline md-form form-sm mb-2">
@@ -48,8 +48,10 @@
 
                         </div>
                     </div>
+                    <!---PAGINADOR-->
+                    <app-paginador-album *ngIf="paginador" [paginador]="paginador" [album] = "album"></app-paginador-album>
                 </div>
-
+                
                 <div class="col-2">
                     <img src="">
                 </div>

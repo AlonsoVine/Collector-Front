@@ -29,6 +29,10 @@ import { AlbumComponent } from './album/album.component';
 import { AlbumService } from './album/album.service';
 import { CartaService } from './album/carta.service';
 
+import { PaginadorAlbumesComponent } from './paginador/paginador-albumes/paginador-albumes.component';
+import { PaginadorAlbumComponent } from './paginador/paginador-album/paginador-album.component';
+
+
 registerLocaleData(localeES, 'es');
 
 const routes: Routes = [
@@ -42,7 +46,9 @@ const routes: Routes = [
   { path: 'usuarios/login', component: LoginComponent },
   { path: 'perfil', component: UsuariodetalleComponent},
   { path: 'albumes', component: AlbumesComponent },
+  { path: 'albumes/:page', component: AlbumesComponent },
   { path: 'album/:id', component: AlbumComponent },
+  { path: 'album/:id/page/:page', component: AlbumComponent },
   { path: 'editarPerfil', component: EditarPerfilComponent},
   { path: 'crearAlbum', component: FormAlbumComponent }
 ]
@@ -53,6 +59,7 @@ const routes: Routes = [
     HeaderComponent,
     FooterComponent,
     InicioComponent,
+
     UsuariosComponent,
     UsuariodetalleComponent,
     EditarPerfilComponent,
@@ -61,7 +68,10 @@ const routes: Routes = [
     LoginComponent,
     AlbumesComponent,
     FormAlbumComponent,
-    AlbumComponent
+    AlbumComponent,
+
+    PaginadorAlbumesComponent,
+    PaginadorAlbumComponent
   ],
   imports: [
     BrowserModule,
@@ -75,10 +85,11 @@ const routes: Routes = [
   ],
   providers: [
     UsuarioService,
-    FormComponent,
     AlbumesService,
     AlbumService,
     CartaService,
+
+    FormComponent,
     UsuariodetalleComponent,
     EditarPerfilComponent,
     FormAlbumComponent,

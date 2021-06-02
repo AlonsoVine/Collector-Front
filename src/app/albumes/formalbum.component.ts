@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from '../usuarios/usuario';
-import { UsuarioService } from '../usuarios/usuario.service';
-import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
+import { Router, ActivatedRoute } from '@angular/router';
+
+import { Album } from '../albumes/album';
+import { AlbumesService } from '../albumes/albumes.service';
+import { UsuarioService } from '../usuarios/usuario.service';
+import { Usuario } from '../usuarios/usuario';
 
 @Component({
   selector: 'app-form-album',
@@ -11,76 +14,54 @@ import Swal from 'sweetalert2';
 })
 export class FormAlbumComponent implements OnInit {
 
-  usuario: Usuario = new Usuario();
-  titulo: string = "Crear Album";
+  album: Album;
+  usuario: Usuario;
+  titulo: string = "CREAR ALBUM";
   errores: string[];
 
   constructor(
-    private usuarioService: UsuarioService,
+    private albumesService: AlbumesService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
-  ) { }
+    private activatedRoute: ActivatedRoute,
+    private usuarioService: UsuarioService
+  ) {
+    this.usuario = usuarioService.usuario;
+  }
 
   ngOnInit() {
-    this.cargarUsuario();
+    this.album = new Album();
+    this.cargarDatosAlbum();
   }
 
-  cargarUsuario(): void {
-    this.activatedRoute.params.subscribe(params => {
-      let id = params['id'];
-      if (id) {
-        this.usuarioService.getUsuario(id).subscribe((usuario) => {
-          this.usuario = usuario;
-          console.log(this.usuario);
+
+  cargarDatosAlbum(): void {/*
+    this.activatedRoute.params.subscribe(params=>{
+      let nombre = params['matricula'];
+      if(nombre){
+        this.vehiculoService.getVehiculo(matricula).subscribe((vehiculo)=>{
+          this.album.matricula=vehiculo.matricula;
+          
+          console.log(this.album);
         });
       }
-    })
+    })*/
+    
   }
 
-  cargarDatosUsuario(id: number): void {
-    console.log("cadw" + id);
-    this.usuarioService.getUsuario(id).subscribe((usuario) => {
-      this.setUsuario(usuario);
-      this.router.navigate(['/usuarios/form']);
+ 
+
+  addAlbum(): void {
+    if(this.album.nombre == null){
+      Swal.fire('Error creación de album', '¡Nombre vacio!', 'error');
+      return;
+    }
+    console.log(this.album.nombre);
+    this.albumesService.createAlbum(this.album.nombre, this.usuario.username).subscribe(
+      (response) => {
+        this.router.navigate([`album/${response.id}`]);
+        Swal.fire('Album creado', `El album ${this.album.nombre} ha sido creado`, 'success');
+      
     });
-  }
-
-  setUsuario(usuario: Usuario) {
-    console.log(usuario);
-    this.usuario = usuario;
-
-    console.log(this.usuario);
-  }
-
-  update(): void {
-
-    this.usuarioService.update(this.usuario).subscribe(
-      json => {
-        this.usuario = json.usuario;
-        sessionStorage.setItem("usuariologueado", JSON.stringify(this.usuario));
-        this.router.navigate(['/usuarios/detalle']);
-        Swal.fire(`¡Actualizado!`, `Tus datos han sido actualizados`, 'success');
-      },
-      err => {
-        this.errores = err.error.errors as string[];
-        console.error('Código del error desde el backend: ' + err.status);
-        console.error(err.error.errors);
-      }
-    )
-  }
-
-  create(): void {
-    this.usuarioService.create(this.usuario).subscribe(
-      usuario => {
-        this.router.navigate(['/usuarios']);
-        Swal.fire(`Nuevo usuario`, `Usuario ${usuario.username} creado`, 'success')
-      },
-      err => {
-        this.errores = err.error.errors as string[];
-        console.error('Código del error desde el backend: ' + err.status);
-        console.error(err.error.errors);
-      }
-    )
   }
 
 

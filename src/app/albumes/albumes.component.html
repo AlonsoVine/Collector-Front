@@ -6,18 +6,6 @@
 
         <div class="col-8">
             
-            <!---BUSCADOR-->
-            <form class="form-inline md-form form-sm" *ngIf="albums.length > 8">
-                <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Busca tu album" aria-label="Search" mdbInput>
-                <button type="submit" class="btn btn-primary">
-                    <i class="bi bi-search"></i>
-                    <span class="fa fa-search"></span>
-                    Buscar
-              </button>
-            </form>
-
-            <hr>
-
             <!---LISTADOR-->
             <div class="row">
                 <div class="col-4">
@@ -32,6 +20,18 @@
                     </button>
                 </div>
             </div>
+
+            <!---BUSCADOR-->
+            <form class="form-inline md-form form-sm" *ngIf="albums.length > 8">
+                <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Busca tu album" aria-label="Search" mdbInput>
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-search"></i>
+                    <span class="fa fa-search"></span>
+                    Buscar
+              </button>
+              <hr>
+            </form>
+
             <div class="container">
                 <div class="row">
 
@@ -60,7 +60,7 @@
             </div>
 
             <!---PAGINADOR-->
-            <app-paginador-album *ngIf="paginador" [paginador]="paginador"></app-paginador-album>
+            <app-paginador-albumes *ngIf="paginador" [paginador]="paginador"></app-paginador-albumes>
         </div>
 
         <div class="col-2">

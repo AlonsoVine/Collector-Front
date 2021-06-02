@@ -17,7 +17,6 @@ export class HeaderComponent implements DoCheck{
     private router:Router
   ){}
 
-  usuario: Usuario=new Usuario();
   logueado:boolean=false;
 
   ngDoCheck(){
