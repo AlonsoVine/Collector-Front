@@ -79,7 +79,7 @@ export class UsuarioService {
   }
 
   update(usuario: Usuario): Observable<any> {///usuario/{id}")
-    this.url = "http://localhost:8082/ecomove/v0.1/usuario";
+    this.url = "http://localhost:8082/collector/usuarios";
     return this.http.put<any>(`${this.url}/${usuario.username}`, usuario, { headers: this.httpHeaders }).pipe(
       catchError(e => {
         if (e.status == 400) {

@@ -19,15 +19,15 @@ export class EditarPerfilComponent implements OnInit {
     private router:Router,
     private activatedRoute: ActivatedRoute
   ) {
-    this.usuario = usuarioService.usuario
+    this.usuario = usuarioService.usuario;
 
    }
 
   ngOnInit(): void {
-    this.cargarVehiculo()
+    this.cargarUsuario()
   }
 
-  cargarVehiculo(): void {
+  cargarUsuario(): void {
     this.activatedRoute.params.subscribe(
       params => {
         let nombre = params['nombre'];
@@ -44,9 +44,12 @@ export class EditarPerfilComponent implements OnInit {
 
   editar():void{
     this.usuarioService.update(this.usuario).subscribe(
-      usuario => {
+      response => {
+        this.usuario = response.usuario;
+        sessionStorage.setItem("usuariologueado",JSON.stringify(this.usuario));
         this.router.navigate(['/perfil']);
-        Swal.fire(`Perfil editado`,`Usuario con nombre ${this.usuario.nombre}`, 'success')
+        Swal.fire(`Perfil editado`,`Usuario con nombre ${this.usuario.nombre}`, 'success');
+        console.log(response);
       }
     )
   }

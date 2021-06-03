@@ -27,6 +27,12 @@
                     </a>
                 </li>
 
+                <li class="nav-item  mt-4" routerLinkActive="active" *ngIf = "logueado">
+                    <a class="nav-link" routerLink="/buscar">
+                        <h4>Buscador</h4>
+                    </a>
+                </li>
+
                 <li class="nav-item dropdown mt-4" routerLinkActive="active" *ngIf = "logueado">
 
                     <a class="nav-link" role="button" data-toggle="dropdown" aria-expanded="false">
