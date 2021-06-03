@@ -21,7 +21,8 @@ export class UsuariosComponent implements OnInit {
     private usuarioService: UsuarioService,
     private router: Router,
     private activatedRoute: ActivatedRoute
-  ) { }
+  ) { 
+  }
 
   /*  ngOnInit(){
       this.usuarioService.getUsuarios().pipe(tap(usuarios=>this.usuarios=usuarios)).subscribe();

@@ -32,6 +32,7 @@ import { CartaService } from './album/carta.service';
 import { PaginadorAlbumesComponent } from './paginador/paginador-albumes/paginador-albumes.component';
 import { PaginadorAlbumComponent } from './paginador/paginador-album/paginador-album.component';
 import { PaginadorUsuariosComponent } from './paginador/paginador-usuarios/paginador-usuarios.component';
+import { BuscadorComponent } from './buscador/buscador.component';
 
 
 registerLocaleData(localeES, 'es');
@@ -51,7 +52,8 @@ const routes: Routes = [
   { path: 'album/:id', component: AlbumComponent },
   { path: 'album/:id/page/:page', component: AlbumComponent },
   { path: 'editarPerfil', component: EditarPerfilComponent},
-  { path: 'crearAlbum', component: FormAlbumComponent }
+  { path: 'crearAlbum', component: FormAlbumComponent },
+  { path: 'buscar', component: BuscadorComponent }
 ]
 
 @NgModule({
@@ -70,6 +72,7 @@ const routes: Routes = [
     AlbumesComponent,
     FormAlbumComponent,
     AlbumComponent,
+    BuscadorComponent,
 
     PaginadorAlbumesComponent,
     PaginadorAlbumComponent,
