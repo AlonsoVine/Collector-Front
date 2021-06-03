@@ -51,12 +51,12 @@ export class AlbumesService {
   }*/
 
   createAlbum(nombreAlbum: string, username: string): Observable<any>{
-    this.url = "http://localhost:8080/collector/album";
+    let url = this.url + "/album";
     console.log(nombreAlbum);
     let params = new HttpParams().set("nombre", nombreAlbum).set("usuario", username);
     
     console.log(params);
-    return this.http.post(`${this.url}`, params).pipe(
+    return this.http.post(`${url}`, params).pipe(
       map((response: any) => {
         console.log(response);
         return response as Album;

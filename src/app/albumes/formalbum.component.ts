@@ -58,7 +58,7 @@ export class FormAlbumComponent implements OnInit {
     console.log(this.album.nombre);
     this.albumesService.createAlbum(this.album.nombre, this.usuario.username).subscribe(
       (response) => {
-        this.router.navigate([`album/${response.id}`]);
+        this.router.navigate(['album', response.id]);
         Swal.fire('Album creado', `El album ${this.album.nombre} ha sido creado`, 'success');
       
     });
