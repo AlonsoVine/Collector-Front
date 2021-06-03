@@ -19,12 +19,11 @@
                             Buscar
                         </button>
                     </form>
-
                     <br>
 
                     <div class="container">
                         <div class="row">
-                            <div class="alert alert-info mt-3" *ngIf="cartas?.length==0">
+                            <div class="alert alert-info mt-3" *ngIf="cartas?.length==0 && paginador!=null">
                                 No hay ningúna carta aún, ¿a qué esperas?
                             </div>
 

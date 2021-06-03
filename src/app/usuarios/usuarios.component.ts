@@ -13,10 +13,9 @@ import { tap } from 'rxjs/operators';
 })
 export class UsuariosComponent implements OnInit {
 
+  usuario: Usuario;
   usuarios: Usuario[];
   paginador: any;
-
-  usuario: Usuario;
 
   constructor(
     private usuarioService: UsuarioService,
@@ -30,7 +29,7 @@ export class UsuariosComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(params => {
-      let pagina: number = +params.get('pagina');
+      let pagina: number = +params.get('page');
       if (!pagina) {
         pagina = 0;
       }
@@ -41,7 +40,7 @@ export class UsuariosComponent implements OnInit {
             this.paginador = response;
             console.log('UsuarioComponent: tap 3');
             (response.content as Usuario[]).forEach(usuario => {
-              console.log(usuario.email);
+              console.log(usuario);
             });
           })
         ).subscribe();
@@ -91,17 +90,6 @@ export class UsuariosComponent implements OnInit {
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
 
 /*ngOnInit(){
   this.usuarioService.getUsuarios().subscribe(

@@ -6,14 +6,14 @@
     </div>
     <h2 class="card-title">Listado de Usuarios</h2>
 
-    <div class="alert alert-info" *ngIf="usuarios?.length==0z">No hay registros en la base de datos</div>
-    <table class="table table-borderdered table-striped" *ngIf="usuarios?.length>0">
+    <div class="alert alert-info" *ngIf="usuarios?.length==0">No hay registros en la base de datos</div>
+    <table class="table table-borderdered table-striped" *ngIf="usuarios?.length>0 ">
       <thead>
         <tr>
           <th>Username</th>
           <th>Nombre</th>
           <th>E-mail</th>
-          <th>Password</th>
+          <th>Creación</th>
           <th>Eliminar</th>
         </tr>
       </thead>
@@ -22,13 +22,11 @@
           <td>{{usuario.username}}</td>
           <td>{{usuario.nombre}}</td>
           <td>{{usuario.email}}</td>
-          <td>{{usuario.correo}}</td>
-          <td>{{usuario.contrasena}}</td>
-          <td><button type="button" name="button" class="btn btn-info">editar</button></td>
+          <td>{{usuario.createAt}}</td>
           <td><button type="button" name="button" class="btn btn-warning">eliminar</button></td>
         </tr>
       </tbody>
 
     </table>
-    <!-- <app-paginator *ngIf="paginador" [paginador]="paginador"></app-paginator> -->
+    <app-paginador-usuarios *ngIf="paginador" [paginador]="paginador"></app-paginador-usuarios>
 </div>
