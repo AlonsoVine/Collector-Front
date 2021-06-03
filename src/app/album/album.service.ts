@@ -17,8 +17,8 @@ export class AlbumService {
     let params = new HttpParams().set("page", page.toString());
     return this.http.get(`${this.url}/${id}/${page}`,{params:params}).pipe(
       map((response: any) => {
-        (response.content as Carta[]).map(album => {
-          return album;
+        (response.content as Carta[]).map(carta => {
+          return carta;
         });
         return response;
       }
