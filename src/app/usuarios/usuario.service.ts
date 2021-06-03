@@ -42,27 +42,16 @@ export class UsuarioService {
   }
 
   getUsuarios(pagina: number): Observable<any[]> {
-    this.url = "http://localhost:8080/collector/usuarios";
-    return this.http.get(this.url + pagina).pipe(
-      tap((response: any) => {
-        console.log('UsuarioService: tap 1');
-        (response.content as Usuario[]).forEach(usuario => {
-          console.log(usuario.email);
-        });
-      }),
+    this.url = "http://localhost:8080/collector/usuarios/page";
+    return this.http.get(this.url + "/" + pagina).pipe(
       map((response: any) => {
+        console.log(response);
         (response.content as Usuario[]).map(usuario => {
-          usuario.email = usuario.email.toUpperCase();
+          //usuario.email = usuario.email.toUpperCase();
+          console.log(usuario);
           return usuario;
         });
         return response;
-      }),
-      tap(response => {
-        console.log('UsuarioService: tap 2');
-        (response.content as Usuario[]).forEach(usuario => {
-          console.log(usuario.email);
-        }
-        )
       })
     );
   }

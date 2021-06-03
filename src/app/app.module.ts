@@ -31,6 +31,7 @@ import { CartaService } from './album/carta.service';
 
 import { PaginadorAlbumesComponent } from './paginador/paginador-albumes/paginador-albumes.component';
 import { PaginadorAlbumComponent } from './paginador/paginador-album/paginador-album.component';
+import { PaginadorUsuariosComponent } from './paginador/paginador-usuarios/paginador-usuarios.component';
 
 
 registerLocaleData(localeES, 'es');
@@ -41,7 +42,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, },
   { path: 'crearCuenta', component: FormComponent },
   { path: 'usuarios', component: UsuariosComponent, },
-  { path: 'usuarios/pg/:pagina', component: UsuariosComponent },
+  { path: 'usuarios/page/:page', component: UsuariosComponent },
   { path: 'usuarios/form/:id', component: FormComponent },
   { path: 'usuarios/login', component: LoginComponent },
   { path: 'perfil', component: UsuariodetalleComponent},
@@ -71,7 +72,8 @@ const routes: Routes = [
     AlbumComponent,
 
     PaginadorAlbumesComponent,
-    PaginadorAlbumComponent
+    PaginadorAlbumComponent,
+    PaginadorUsuariosComponent
   ],
   imports: [
     BrowserModule,
