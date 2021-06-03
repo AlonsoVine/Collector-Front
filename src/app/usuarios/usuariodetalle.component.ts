@@ -12,18 +12,29 @@ import { UsuarioService } from './usuario.service';
 export class UsuariodetalleComponent implements OnInit {
 
   constructor(
-    private formcomponent: FormComponent
+    private usuarioService: UsuarioService
   ) { }
 
   usuario: Usuario=new Usuario();
+  numAlbums: number;
 
   ngOnInit(): void {
-    this.usuario=JSON.parse(sessionStorage.getItem("usuariologueado"));
+    this.usuario = this.usuarioService.usuario
+    this.getNumAlbums();
   }
 
-  cargarUsuario(username: number):void{ //hacer bien la peticion en nuestro back está en usuario service getUsuario(ecomove)
+ /* cargarUsuario(username: number):void{ //hacer bien la peticion en nuestro back está en usuario service getUsuario(ecomove)
     console.log(username);
     this.formcomponent.cargarDatosUsuario(username);
+  }*/
+
+  getNumAlbums () {
+    this.usuarioService.getNumAlbumesUsuario(this.usuario.username).subscribe(
+      response => {
+        console.log(response);
+        this.numAlbums = response as number;
+      }
+    )
   }
 
 }

@@ -1,35 +1,36 @@
 <div class="row">
 
-  <div class="col-3"></div>
+    <div class="col-3"></div>
 
-  <div class="card col-6 row">
-    <div class="card-header row">
-      <div class="col-1"></div>
-      <div class= " col-7 primerTitulo mt-2">
-        <h2 class="mb-0 mt-1">
-          <img class="user-album-icon"  width="35" height="35" class="mr-3" src="./assets/images/icons/user-album-icon.svg">
-          {{usuario.username}}
-        </h2>
-      </div>
-      <div class="col-3">
-        <button class="btn btn-primary botonEditar my-2" type="button" name="button" [routerLink]="['/editarPerfil']">
+    <div class="card col-6 row">
+        <div class="card-header row">
+            <div class="col-1"></div>
+            <div class=" col-7 primerTitulo mt-2">
+                <h2 class="mb-0 mt-1">
+                    <img class="user-album-icon" width="35" height="35" class="mr-3" src="./assets/images/icons/user-album-icon.svg"> {{usuario.username}}
+                </h2>
+            </div>
+            <div class="col-3">
+                <button class="btn btn-primary botonEditar my-2" type="button" name="button" [routerLink]="['/editarPerfil']">
           <i class="bi bi-search"></i>
           Editar
         </button>
-      </div>
+            </div>
+        </div>
+        <div class=" container row">
+            <div class="card-body text-dark">
+                <h3 class="card-title">Nombre:</h3>
+                <p class="card-text ml-3">{{usuario.nombre}}</p>
+                <h3 class="card-title">E-mail:</h3>
+                <p class="card-text ml-3">{{usuario.email}}</p>
+                <h3 class="card-title">Creación cuenta:</h3>
+                <p class="card-text ml-3">{{usuario.createAt}}</p>
+                <h3 class="card-title">Numero de álbumes:</h3>
+                <p class="card-text ml-3">{{numAlbums}}</p>
+            </div>
+        </div>
     </div>
-   <div class=" container row" >
-    <div class="card-body text-dark">
-      <h3 class="card-title">Nombre:</h3>
-      <p class="card-text ml-3">{{usuario.nombre}}</p>
-      <h3 class="card-title">E-mail:</h3>
-      <p class="card-text ml-3">{{usuario.email}}</p>
-      <h3 class="card-title">Creación cuenta:</h3>
-      <p class="card-text ml-3">{{usuario.createAt}}</p>
-    </div>
-    </div>
-  </div>
 
-  <div class="col-3"></div>
+    <div class="col-3"></div>
 
 </div>

@@ -68,6 +68,11 @@ export class UsuarioService {
     );
   }
 
+  getNumAlbumesUsuario(id: string): Observable<number> {
+    this.url = "http://localhost:8080/collector/user";
+    return this.http.get<number>(`${this.url}/${id}/albums/num`);
+  }
+
   getUsuarioLogin(usuario: Usuario): Observable<any> {
     const urlEndpoint = 'http://localhost:8080/collector/usuarios/login';
     let params = new URLSearchParams();
