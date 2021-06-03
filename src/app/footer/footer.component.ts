@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent{
-  title: string="Derechos Reservados";
+  title: string="Album-Collector";
 }
