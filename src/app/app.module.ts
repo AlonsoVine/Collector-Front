@@ -34,6 +34,7 @@ import { CartaService } from './album/carta.service';
 
 import { PaginadorAlbumesComponent } from './paginador/paginador-albumes/paginador-albumes.component';
 import { PaginadorAlbumComponent } from './paginador/paginador-album/paginador-album.component';
+import { PaginadorBuscadorComponent } from './paginador/paginador-buscador/paginador-buscador.component';
 import { PaginadorUsuariosComponent } from './paginador/paginador-usuarios/paginador-usuarios.component';
 
 
@@ -83,6 +84,7 @@ const routes: Routes = [
 
     PaginadorAlbumesComponent,
     PaginadorAlbumComponent,
+    PaginadorBuscadorComponent,
     PaginadorUsuariosComponent,
     BuscadorUsuariosComponent,
     CartaComponent
