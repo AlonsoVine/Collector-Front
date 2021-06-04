@@ -17,6 +17,7 @@ export class AlbumComponent implements OnInit {
   id_album: number;
   cartas: Carta[];
   paginador: any;
+  cargando: boolean = true;
 
   constructor(
     private cartaService: CartaService,
@@ -26,15 +27,13 @@ export class AlbumComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
     this.activatedRoute.paramMap.subscribe(params => {
       let pagina = +params.get('page');
       if (!pagina) {
         pagina = 0;
       }
 
-      this.id_album = +params.get('id')
-
+      this.id_album = +params.get('id');
       this.albumesService.getAlbum(this.id_album).subscribe(response => {
         this.album = response as Album;
       });
@@ -44,16 +43,22 @@ export class AlbumComponent implements OnInit {
     })
   }
 
+  getImagenes(carta: Carta) {
+    this.cartaService.getImagenesCarta(carta).subscribe( () => {
+      this.cargando = false;
+    });
+  }
+
   obtenerCartas(pagina: number): void {
     this.albumService.getPaginaAlbum(this.id_album, pagina).subscribe(response => {
       this.cartas = response.content as Carta[];
       this.cartas.forEach(carta => {
         this.cartaService.getCarta(carta).subscribe(() => {
-          // Primero todos los textos y luego todas las imagenes
-          this.cartaService.getImagenesCarta(carta).subscribe();
+          // Primero todos los textos y luego las imagenes:
+          // getImagenes(carta)
         });
-        // Imagen y texto de una en una
-        // this.cartaService.getImagenesCarta(carta).subscribe();
+        // Primero imagenes y luego textos:
+        this.getImagenes(carta);
       })
       this.paginador = response;
     })

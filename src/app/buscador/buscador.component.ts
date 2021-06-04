@@ -10,13 +10,13 @@ import { CartaService } from '../album/carta.service';
 })
 export class BuscadorComponent implements OnInit {
 
-  busquedaRealizada: boolean = false;
-
   cartasBusqueda: Carta[];
   textoBuscado: string;
   tipoBusqueda: string;
   paginador: any;
   pagina: number;
+
+  cargando: boolean = false;
 
   constructor(
     private cartaService: CartaService,
@@ -37,7 +37,7 @@ export class BuscadorComponent implements OnInit {
   }
 
   getCartas() {
-    console.log(this.tipoBusqueda);
+    this.cargando = true;
     if (this.tipoBusqueda == "oracle") {
       this.getByNombreGroupByOracle();
     } else if (this.tipoBusqueda == "ilust") {
@@ -49,19 +49,15 @@ export class BuscadorComponent implements OnInit {
 
   getImagenes () {
     this.cartasBusqueda.forEach(carta => {
-      this.cartaService.getImagenesCarta(carta).subscribe();
-      /*
-      this.cartaService.getCarta(carta).subscribe(() => {
-        // Primero todos los textos y luego todas las imagenes
-        
-      });*/
+      this.cartaService.getImagenesCarta(carta).subscribe( () => {
+        this.cargando = false;
+      });
     });
   }
 
   getByNombreGroupByOracle () {
     this.cartaService.getByNombreGroupByOracle(this.textoBuscado, this.pagina).subscribe(
       response => {
-        console.log(response);
         this.cartasBusqueda = response.content as Carta[];
         this.paginador = response;
         this.getImagenes();

@@ -36,3 +36,10 @@ select {
     padding-top: 4px;
     padding-bottom: 4px;
 }
+
+.loading {
+    width: 3rem;
+    height: 3rem;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
