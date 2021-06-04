@@ -40,14 +40,14 @@ import { PaginadorUsuariosComponent } from './paginador/paginador-usuarios/pagin
 registerLocaleData(localeES, 'es');
 
 const routes: Routes = [
-  { path: '', redirectTo: '/usuarios/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'inicio', component: InicioComponent },
   { path: 'home', component: HomeComponent, },
   { path: 'crearCuenta', component: FormComponent },
   { path: 'usuarios', component: UsuariosComponent, },
   { path: 'usuarios/page/:page', component: UsuariosComponent },
   { path: 'usuarios/form/:id', component: FormComponent },
-  { path: 'usuarios/login', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'perfil', component: UsuariodetalleComponent},
   { path: 'albumes', component: AlbumesComponent },
   { path: 'albumes/:page', component: AlbumesComponent },

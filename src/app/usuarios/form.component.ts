@@ -14,6 +14,7 @@ export class FormComponent implements OnInit {
   usuario: Usuario = new Usuario();
   titulo: string = "Crear Cuenta";
   errores: string[];
+  passwordConfirmada: string;
 
   constructor(
     private usuarioService: UsuarioService,
@@ -70,17 +71,22 @@ export class FormComponent implements OnInit {
   }
 
   create(): void {
-    this.usuarioService.create(this.usuario).subscribe(
-      usuario => {
-        this.router.navigate(['/usuarios']);
-        Swal.fire(`Nuevo usuario`, `Usuario ${usuario.username} creado`, 'success')
-      },
-      err => {
-        this.errores = err.error.errors as string[];
-        console.error('Código del error desde el backend: ' + err.status);
-        console.error(err.error.errors);
-      }
-    )
+    if(this.usuario.password == this.passwordConfirmada){
+      this.usuarioService.create(this.usuario).subscribe(
+        usuario => {
+          this.router.navigate(['/login']);
+          Swal.fire(`Nuevo usuario`, `Usuario ${usuario.username} creado`, 'success');
+        }/*,
+        err => {
+          this.errores = err.error.errors as string[];
+          console.error('Código del error desde el backend: ' + err.status);
+          console.error(err.error.errors);
+        }*/
+      )
+    }else{
+      Swal.fire(`Contraseñas distintas`, `Las contraseñas no coinciden`, 'error')
+    }
+    
   }
 
 

@@ -9,10 +9,9 @@ import Swal from 'sweetalert2';
 @Injectable()
 export class UsuarioService {
 
+  private url : string = "http://localhost:8080/collector";
   private _usuario: Usuario;
   private _token: string;
-
-  private url: string;
 
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
@@ -42,8 +41,8 @@ export class UsuarioService {
   }
 
   getUsuarios(pagina: number): Observable<any[]> {
-    this.url = "http://localhost:8080/collector/usuarios/page";
-    return this.http.get(this.url + "/" + pagina).pipe(
+    let url = this.url + "/usuarios/page";
+    return this.http.get(url + "/" + pagina).pipe(
       map((response: any) => {
         console.log(response);
         (response.content as Usuario[]).map(usuario => {
@@ -98,9 +97,15 @@ export class UsuarioService {
   }
 
   create(usuario: Usuario): Observable<Usuario> {
-    this.url = "http://localhost:8082/ecomove/v0.1/usuario";
-    return this.http.post(this.url, usuario, { headers: this.httpHeaders }).pipe(
-      map((response: any) => response.usuario as Usuario),
+    let url = this.url + "/usuario";
+    let params = new HttpParams()
+    .set('username', usuario.username)
+    .set('password', usuario.password)
+    .set('nombre', usuario.nombre)
+    .set('email', usuario.email);
+
+    return this.http.post(url, params).pipe(
+      map((response: any) => response as Usuario),
       catchError(e => {
         if (e.status == 400) {
           return throwError(e);
