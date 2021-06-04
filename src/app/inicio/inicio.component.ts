@@ -42,3 +42,4 @@ export class InicioComponent implements OnInit {
   }
 
 }
+2
