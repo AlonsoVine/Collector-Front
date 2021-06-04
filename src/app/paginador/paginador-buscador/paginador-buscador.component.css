@@ -1,0 +1,11 @@
+.color{
+    color: #0066A1;
+}
+
+.activo {
+    background: #0066A1;
+    color: white;
+    padding: 0.9em;
+    text-align: center;
+    bottom: 0;
+}
