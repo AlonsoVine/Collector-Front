@@ -33,8 +33,7 @@ export class AlbumComponent implements OnInit {
         pagina = 0;
       }
 
-      this.id_album = +params.get('id')
-
+      this.id_album = +params.get('id');
       this.albumesService.getAlbum(this.id_album).subscribe(response => {
         this.album = response as Album;
       });

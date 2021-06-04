@@ -12,6 +12,9 @@ import { CartaService } from '../carta.service';
 export class CartaComponent implements OnInit {
 
   id_carta: number;
+  scryfall_id: string;
+  carta_en_album: boolean;
+
   nombre_carta: string;
   carta: Carta;
 
@@ -24,12 +27,18 @@ export class CartaComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(params =>{
       this.id_carta = +params.get('id');
-
-      
+      this.scryfall_id = params.get('scid');
+      this.carta_en_album = this.id_carta ? true : false;
+      this.obtenerCarta();
     })
-
   }
 
+  obtenerCarta(): void {
+    this.carta = new Carta();
+    this.carta.scryfallId = this.scryfall_id;
+    this.cartaService.getCarta(this.carta).subscribe();
+    this.cartaService.getImagenesCarta(this.carta).subscribe();
 
 
+  }
 }

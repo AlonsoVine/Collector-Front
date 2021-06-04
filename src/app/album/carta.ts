@@ -11,5 +11,5 @@ export class Carta {
   scryfallIllustrationId: string;
   scryfallOracleId: string;
 
-  imagenesCarta: Map<string, string>;
+  imagenesCarta: any;
 }

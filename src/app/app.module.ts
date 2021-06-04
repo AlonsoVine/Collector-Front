@@ -57,7 +57,10 @@ const routes: Routes = [
   { path: 'crearAlbum', component: FormAlbumComponent },
   { path: 'buscar', component: BuscadorComponent },
   { path: 'buscarUsuarios', component: BuscadorUsuariosComponent },
-  { path: 'carta', component: CartaComponent }
+  { path: 'carta/:scid/:id', component: CartaComponent },
+  { path: 'carta/:scid', component: CartaComponent }
+
+
 ]
 
 @NgModule({
