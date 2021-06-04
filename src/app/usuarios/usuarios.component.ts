@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from "./usuario";
 import { UsuarioService } from './usuario.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import swal from 'sweetalert2';
 import Swal from 'sweetalert2';
 import { tap } from 'rxjs/operators';
 
@@ -19,10 +18,8 @@ export class UsuariosComponent implements OnInit {
 
   constructor(
     private usuarioService: UsuarioService,
-    private router: Router,
     private activatedRoute: ActivatedRoute
-  ) { 
-  }
+  ) { }
 
   /*  ngOnInit(){
       this.usuarioService.getUsuarios().pipe(tap(usuarios=>this.usuarios=usuarios)).subscribe();

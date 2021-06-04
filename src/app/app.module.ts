@@ -33,6 +33,7 @@ import { PaginadorAlbumesComponent } from './paginador/paginador-albumes/paginad
 import { PaginadorAlbumComponent } from './paginador/paginador-album/paginador-album.component';
 import { PaginadorUsuariosComponent } from './paginador/paginador-usuarios/paginador-usuarios.component';
 import { BuscadorComponent } from './buscador/buscador.component';
+import { BuscadorUsuariosComponent } from './usuarios/buscador/buscador-usuarios/buscador-usuarios.component';
 
 
 registerLocaleData(localeES, 'es');
@@ -76,7 +77,8 @@ const routes: Routes = [
 
     PaginadorAlbumesComponent,
     PaginadorAlbumComponent,
-    PaginadorUsuariosComponent
+    PaginadorUsuariosComponent,
+    BuscadorUsuariosComponent
   ],
   imports: [
     BrowserModule,
