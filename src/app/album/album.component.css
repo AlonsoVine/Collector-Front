@@ -26,3 +26,10 @@ ul {
     color: royalblue;
     text-decoration: none;
 }
+
+.loading {
+    width: 3rem;
+    height: 3rem;
+    margin-top: 35px;
+    margin-bottom: 200px;
+}

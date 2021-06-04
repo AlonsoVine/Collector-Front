@@ -9,7 +9,7 @@
             <!---LISTADOR-->
             <div>
                 <h1>
-                    <img class="album-icon" width="28" height="28" class="mr-3" src="./assets/images/icons/search-icon.svg"> Buscador
+                    <img class="album-icon" width="27" height="27" class="mr-3" src="./assets/images/icons/search-icon.svg"> Buscador
                 </h1>
             </div>
             <hr>
@@ -29,11 +29,14 @@
 
             <div class="container">
                 <div class="row">
-                    <!-- div class="alert alert-info mt-3" *ngIf="!busquedaRealizada">
-                        
-                    </div -->
 
-                    <ul class="listaCartas">
+                    <div class="col-12 d-flex justify-content-center">
+                        <div class="spinner-border text-primary loading" role="status" *ngIf="cargando">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+
+                    <ul class="listaCartas" *ngIf="!cargando">
                         <div class="container">
                             <div class="row">
                                 <div class="col-4" *ngFor="let carta of cartasBusqueda">
