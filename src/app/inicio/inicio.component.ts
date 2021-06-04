@@ -13,32 +13,10 @@ import { tap } from 'rxjs/operators';
 })
 export class InicioComponent implements OnInit {
 
-  usuario: Usuario;
-  usuarios: Usuario[];
-  paginador: any;
-
   constructor(
-    private usuarioService: UsuarioService,
-    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe( params => {
-      let pagina : number = +params.get('page');
-      if (!pagina) {
-        pagina = 0;
-      }
-      this.usuarioService.getUsuarios(pagina).pipe(
-        tap((response: any) =>{
-          this.usuarios = response.content as Usuario[];
-            this.paginador = response;
-            console.log('UsuarioComponent: tap 3');
-            (response.content as Usuario[]).forEach(usuario => {
-              console.log(usuario);
-            });
-        })
-      ).subscribe();
-    });
   }
 
 }

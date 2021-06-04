@@ -20,9 +20,12 @@ import { UsuariodetalleComponent } from './usuarios/usuariodetalle.component';
 import { FormComponent } from './usuarios/form.component';
 import { LoginComponent } from './usuarios/login.component';
 import { EditarPerfilComponent } from './usuarios/editarperfil.component';
-import { UsuarioService } from './usuarios/usuario.service';
-
+import { BuscadorComponent } from './buscador/buscador.component';
+import { BuscadorUsuariosComponent } from './usuarios/buscador/buscador-usuarios/buscador-usuarios.component';
+import { CartaComponent } from './album/carta/carta.component';
 import { AlbumesComponent } from './albumes/albumes.component';
+
+import { UsuarioService } from './usuarios/usuario.service';
 import { AlbumesService } from './albumes/albumes.service';
 import { FormAlbumComponent } from './albumes/formalbum.component';
 import { AlbumComponent } from './album/album.component';
@@ -32,8 +35,6 @@ import { CartaService } from './album/carta.service';
 import { PaginadorAlbumesComponent } from './paginador/paginador-albumes/paginador-albumes.component';
 import { PaginadorAlbumComponent } from './paginador/paginador-album/paginador-album.component';
 import { PaginadorUsuariosComponent } from './paginador/paginador-usuarios/paginador-usuarios.component';
-import { BuscadorComponent } from './buscador/buscador.component';
-import { BuscadorUsuariosComponent } from './usuarios/buscador/buscador-usuarios/buscador-usuarios.component';
 
 
 registerLocaleData(localeES, 'es');
@@ -54,7 +55,9 @@ const routes: Routes = [
   { path: 'album/:id/page/:page', component: AlbumComponent },
   { path: 'editarPerfil', component: EditarPerfilComponent},
   { path: 'crearAlbum', component: FormAlbumComponent },
-  { path: 'buscar', component: BuscadorComponent }
+  { path: 'buscar', component: BuscadorComponent },
+  { path: 'buscarUsuarios', component: BuscadorUsuariosComponent },
+  { path: 'carta', component: CartaComponent }
 ]
 
 @NgModule({
@@ -78,7 +81,8 @@ const routes: Routes = [
     PaginadorAlbumesComponent,
     PaginadorAlbumComponent,
     PaginadorUsuariosComponent,
-    BuscadorUsuariosComponent
+    BuscadorUsuariosComponent,
+    CartaComponent
   ],
   imports: [
     BrowserModule,

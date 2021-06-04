@@ -22,38 +22,12 @@
           <form class="form-inline md-form form-sm">
             <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Usuarios" aria-label="Search"
               mdbInput>
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn btn-primary" routerLink="/buscarUsuarios">
               <i class="bi bi-search"></i>
               <span class="fa fa-search"></span>
               Buscar
             </button>
           </form>
-
-          <ul class="listaUsuarios">
-            <div class="container">
-              <div class="row">
-                <h2 class="card-title col-12">Listado de Usuarios</h2>
-                <div class="card col-3" style="width: 80%;" *ngFor="let usuario of usuarios">
-                  <li class="card-body" routerLinkActive="active">
-                    <a class="link-album" routerLink="/usuarios/{{usuario.username}}">
-                      <img src="./assets/images/icons/user-album-icon.svg" width="35px" height="35px">
-                      <h3 class="card-title">{{usuario.username}}</h3>
-                      <div class="card-text">
-                        {{usuario.nombre}}
-                      </div>
-                      <div>
-                        Nº albums: 12
-
-                      </div>
-
-                    </a>
-                  </li>
-                </div>
-              </div>
-              
-
-            </div>
-          </ul>
 
         </div>
 

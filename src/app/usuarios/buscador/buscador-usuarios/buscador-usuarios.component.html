@@ -1,1 +1,57 @@
-<p>buscador-usuarios works!</p>
+<div class="row">
+    <div class="col">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <img src="">
+                </div>
+
+                <div class="col-8">
+                    <h1>Usuarios</h1>
+                    
+                    <hr>
+                    <form class="form-inline md-form form-sm">
+                        <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Usuarios"
+                            aria-label="Search" mdbInput>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-search"></i>
+                            <span class="fa fa-search"></span>
+                            Buscar
+                        </button>
+                    </form>
+
+                    <ul class="listaUsuarios">
+                        <div class="container">
+                          <h2 class="card-title col-12">Listado de Usuarios</h2>
+                          <div class="row">
+                            <div class="card col-3 text-center my-1" style="width: 15em" *ngFor="let usuario of usuarios">
+                              <li class="card-body" routerLinkActive="active">
+                                <a class="link-album" routerLink="/usuarios/{{usuario.username}}">
+                                  <img src="./assets/images/icons/user-album-icon.svg" width="32px" height="32px">
+                                  <h3 class="card-title mb-0">{{usuario.username}}</h3>
+                                  <div class="card-text">
+                                    {{usuario.nombre}}
+                                  </div>
+                                  <div>
+                                    Nº albums: 12
+                                  </div>
+                                </a>
+                              </li>
+                            </div>
+                          </div>
+                          
+            
+                        </div>
+                      </ul>
+
+                </div>
+
+
+
+                <div class="col-2">
+                    <img src="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
