@@ -13,6 +13,8 @@ import { UsuarioService } from './usuario.service';
 export class EditarPerfilComponent implements OnInit {
 
   usuario: Usuario;
+  errores: string[];
+  passwordConfirmada: string;
 
   constructor(
     private usuarioService: UsuarioService,

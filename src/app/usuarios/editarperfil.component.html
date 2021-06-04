@@ -1,4 +1,4 @@
-<div class="row d-flex justify-content-center col-12 text-center">
+<!-- div class="row d-flex justify-content-center col-12 text-center">
     <div class="card col-6 card1">
         <div class="card-header row">
             <div class="titulofiltros mt-2">Editar perfil</div>
@@ -35,6 +35,92 @@
                                 <i class="bi bi-search"></i>
                                 Guardar
                             </button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div -->
+
+<!------>
+
+<ul class="alert alert-danger" *ngIf="errores?.length>0">
+    <li *ngFor="let error of errores">{{error}}</li>
+</ul>
+<div class="row d-flex justify-content-center col-12 text-center">
+    <div class="card col-6 card1">
+        <div class="card-header row">
+            <div class="titulofiltros mt-2">Editar perfil</div>
+        </div>
+        <div class="cad-body row col-12 text-center mx-0 alturaminima">
+            <div class="col-12">
+                <form #formularioPerfil="ngForm" method="post">
+
+                    <div class="form-group row mt-4">
+                        <label for="username" class="col-form-label col-6 text-left mt-1">Username</label>
+                        <div class="inputFormulario p 0">
+                            <input type="text" class="form-control" name="username" placeholder="{{usuario.username}}" [(ngModel)]="usuario.username" #username="ngModel" minlength="3">
+                        </div>
+                    </div>
+
+                    <div class="alert alert-danger" *ngIf="username.invalid && (username.dirty || username.touched)">
+                        <div *ngIf="username.errors.required">Rellene el campo por favor</div>
+                        <div *ngIf="username.errors.minlength">Debe de tener un mínimo de tres caracteres</div>
+                    </div>
+
+                    <div class="form-group row mt-4">
+                        <label for="nombre" class="col-form-label col-6 text-left mt-1">Nombre</label>
+                        <div class="inputFormulario p 0">
+                            <input type="text" class="form-control" name="nombre" placeholder="{{usuario.nombre}}" [(ngModel)]="usuario.nombre">
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-4">
+                        <label for="email" class="col-form-label col-6 text-left mt-1">E-Mail</label>
+                        <div class="inputFormulario p 0">
+                            <input type="text" class="form-control" name="email" placeholder="{{usuario.email}}" [(ngModel)]="usuario.email" #correo="ngModel" email>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-danger" *ngIf="correo.invalid && (correo.dirty || correo.touched)">
+                        <div *ngIf="correo.errors.required">Rellene el campo por favor</div>
+                        <div *ngIf="correo.errors.email">Escriba un correo válido</div>
+                    </div>
+
+                    <div class="form-group row mt-4">
+                        <label for="password" class="col-form-label col-6 text-left mt-1">Contrase&ntilde;a</label>
+                        <div class="inputFormulario p 0">
+                            <input type="password" class="form-control" name="password" placeholder="*****" minlength="3" [(ngModel)]="usuario.password" #contrasena="ngModel">
+                        </div>
+                    </div>
+
+                    <div class="alert alert-danger" *ngIf="contrasena.invalid && (contrasena.dirty || contrasena.touched)">
+                        <div *ngIf="contrasena.errors.required">Rellene el campo por favor</div>
+                        <div *ngIf="contrasena.errors.minlength">Debe de tener un mínimo de tres caracteres</div>
+                    </div>
+
+                    <div class="form-group row mt-4">
+                        <label for="passwordC" class="col-form-label col-6 text-left mt-1">Confirmar contrase&ntilde;a</label>
+                        <div class="inputFormulario p 0">
+                            <input type="password" class="form-control" name="passwordC" placeholder="*****" [(ngModel)]="passwordConfirmada" #contrasenaConfirmada="ngModel">
+                        </div>
+                    </div>
+
+                    <div class="alert alert-danger" *ngIf="((contrasenaConfirmada.invalid || (passwordConfirmada != usuario.password)) && (contrasenaConfirmada.dirty || contrasenaConfirmada.touched))">
+                        <div *ngIf="passwordConfirmada != usuario.password">Las contraseñas deben coincidir</div>
+                        <div *ngIf="contrasenaConfirmada.errors.required">Rellene el campo por favor</div>
+                        <div *ngIf="contrasenaConfirmada.errors.minlength">Debe de tener un mínimo de tres caracteres</div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-12 m-2">
+                            <button class="btn btn-primary" role="button" (click)='editar()'>
+                              <i class="bi bi-search"></i>
+                              Crear
+                          </button>
                         </div>
                     </div>
 

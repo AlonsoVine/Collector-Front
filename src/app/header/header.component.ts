@@ -47,7 +47,7 @@ export class HeaderComponent implements DoCheck{
     }).then((result) => {
       if (result.isConfirmed) {
         this.usuarioService.logout();
-        this.router.navigate(['/usuarios/login']);
+        this.router.navigate(['/login']);
         swalWithBootstrapButtons.fire(
           'Log out',
           'Sessión Cerrada',
