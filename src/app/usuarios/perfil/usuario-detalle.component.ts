@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from './usuario';
-import { UsuarioService } from './usuario.service';
+import { Usuario } from '../usuario';
+import { UsuarioService } from '../usuario.service';
 
 @Component({
-  selector: 'app-usuariodetalle',
-  templateUrl: './usuariodetalle.component.html',
-  styleUrls: ['./usuariodetalle.component.css']
+  selector: 'app-usuario-detalle',
+  templateUrl: './usuario-detalle.component.html',
+  styleUrls: ['./usuario-detalle.component.css']
 })
-export class UsuariodetalleComponent implements OnInit {
+export class UsuarioDetalleComponent implements OnInit {
 
   constructor(
     private usuarioService: UsuarioService

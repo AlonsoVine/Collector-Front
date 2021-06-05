@@ -16,10 +16,10 @@ import { FooterComponent } from './footer/footer.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { HomeComponent } from './home/home.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
-import { UsuariodetalleComponent } from './usuarios/usuariodetalle.component';
-import { CrearPerfilComponent } from './usuarios/crear-perfil.component';
-import { EditarPerfilComponent } from './usuarios/editar-perfil.component';
-import { LoginComponent } from './usuarios/login.component';
+import { UsuarioDetalleComponent } from './usuarios/perfil/usuario-detalle.component';
+import { CrearPerfilComponent } from './usuarios/crear-perfil/crear-perfil.component';
+import { EditarPerfilComponent } from './usuarios/editar-perfil/editar-perfil.component';
+import { LoginComponent } from './usuarios/login/login.component';
 import { BuscadorComponent } from './buscador/buscador.component';
 import { BuscadorUsuariosComponent } from './usuarios/buscador/buscador-usuarios/buscador-usuarios.component';
 import { CartaComponent } from './album/carta/carta.component';
@@ -49,7 +49,7 @@ const routes: Routes = [
   { path: 'usuarios/page/:page', component: UsuariosComponent },
   { path: 'usuarios/form/:id', component: CrearPerfilComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'perfil', component: UsuariodetalleComponent},
+  { path: 'perfil', component: UsuarioDetalleComponent},
   { path: 'albumes', component: AlbumesComponent },
   { path: 'albumes/:page', component: AlbumesComponent },
   { path: 'album/:id', component: AlbumComponent },
@@ -72,7 +72,7 @@ const routes: Routes = [
     InicioComponent,
 
     UsuariosComponent,
-    UsuariodetalleComponent,
+    UsuarioDetalleComponent,
     EditarPerfilComponent,
     CrearPerfilComponent,
     HomeComponent,
@@ -106,7 +106,7 @@ const routes: Routes = [
     CartaService,
 
     CrearPerfilComponent,
-    UsuariodetalleComponent,
+    UsuarioDetalleComponent,
     EditarPerfilComponent,
     FormAlbumComponent,
     { provide: LOCALE_ID, useValue: 'es' }

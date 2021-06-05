@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { Usuario } from './usuario';
-import { UsuarioService } from './usuario.service';
+import { Usuario } from '../usuario';
+import { UsuarioService } from '../usuario.service';
 
 
 @Component({
