@@ -32,6 +32,7 @@
     "ngx-google-places-autocomplete": "^2.0.5",
     "rxjs": "~6.6.0",
     "sweetalert2": "^10.12.5",
+    "ts-md5": "^1.2.8",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },

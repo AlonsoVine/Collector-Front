@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../usuario'
 import { UsuarioService } from '../usuario.service';
 import { Router } from '@angular/router';
+import { Md5 } from 'ts-md5/dist/md5';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -22,6 +23,7 @@ export class CrearPerfilComponent implements OnInit {
 
   ngOnInit() {
     this.usuario = this.usuarioService.usuario;
+    console.log(Md5.hashStr("Hola"))
   }
 
   create(): void {
