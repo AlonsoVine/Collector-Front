@@ -13,45 +13,31 @@ import { UsuarioService } from './usuario.service';
 export class EditarPerfilComponent implements OnInit {
 
   usuario: Usuario;
+  usuarioEditado: Usuario;
   errores: string[];
   passwordConfirmada: string;
 
   constructor(
     private usuarioService: UsuarioService,
-    private router:Router,
+    private router: Router,
     private activatedRoute: ActivatedRoute
   ) {
     this.usuario = usuarioService.usuario;
-
-   }
+    this.usuarioEditado = new Usuario();
+  }
 
   ngOnInit(): void {
-    this.cargarUsuario()
   }
 
-  cargarUsuario(): void {
-    this.activatedRoute.params.subscribe(
-      params => {
-        let nombre = params['nombre'];
-        if(nombre){
-          this.usuarioService.getUsuario(nombre).subscribe(
-            (usuario ) => {
-              this.usuario.nombre = usuario.nombre;
-            }
-          )
-        }
-      }
-    )
-  }
-
-  editar():void{
-    this.usuarioService.update(this.usuario).subscribe(
+  editar(): void {
+    this.usuarioService.update(this.usuario.username, this.usuarioEditado).subscribe(
       response => {
-        this.usuario = response.usuario;
-        sessionStorage.setItem("usuariologueado",JSON.stringify(this.usuario));
+        this.usuario = response;
+        sessionStorage.setItem("usuariologueado", JSON.stringify(this.usuario));
+        Swal.fire(`Perfil editado`, `Usuario con nombre ${this.usuario.nombre}`, 'success');
+        console.log(this.usuario);
         this.router.navigate(['/perfil']);
-        Swal.fire(`Perfil editado`,`Usuario con nombre ${this.usuario.nombre}`, 'success');
-        console.log(response);
+        
       }
     )
   }

@@ -53,7 +53,7 @@ export class FormComponent implements OnInit {
     console.log(this.usuario);
   }
 
-  update(): void {
+  /*update(): void {
 
     this.usuarioService.update(this.usuario).subscribe(
       json => {
@@ -68,7 +68,7 @@ export class FormComponent implements OnInit {
         console.error(err.error.errors);
       }
     )
-  }
+  }*/
 
   create(): void {
     if(this.usuario.password == this.passwordConfirmada){

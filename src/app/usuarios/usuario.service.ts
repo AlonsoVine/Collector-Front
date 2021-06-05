@@ -68,23 +68,24 @@ export class UsuarioService {
   }
 
   getNumAlbumesUsuario(id: string): Observable<number> {
-    this.url = "http://localhost:8080/collector/user";
-    return this.http.get<number>(`${this.url}/${id}/albums/num`);
+    let url = this.url + "/user";
+    return this.http.get<number>(`${url}/${id}/albums/num`);
   }
 
   getUsuarioLogin(usuario: Usuario): Observable<any> {
-    const urlEndpoint = 'http://localhost:8080/collector/usuarios/login';
+    const urlEndpoint = this.url + "/usuarios/login";
     let params = new URLSearchParams();
     params.set('grant_type', 'password');
     params.set('user', usuario.username);
     params.set('pass', usuario.password);
     console.log(params.toString());
-    return this.http.post<any>(urlEndpoint + "?" + params.toString(), {});
+    return this.http.post<any>(urlEndpoint + '?' + params.toString(), {});
   }
 
-  update(usuario: Usuario): Observable<any> {///usuario/{id}")
-    this.url = "http://localhost:8082/collector/usuarios";
-    return this.http.put<any>(`${this.url}/${usuario.username}`, usuario, { headers: this.httpHeaders }).pipe(
+  update(username: string, usuario: Usuario): Observable<any> {
+    let url = this.url + "/usuario";
+
+    return this.http.post<any>(`${url}/${username}`, usuario).pipe(
       catchError(e => {
         if (e.status == 400) {
           return throwError(e);

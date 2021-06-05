@@ -15,11 +15,11 @@ export class UsuariodetalleComponent implements OnInit {
     private usuarioService: UsuarioService
   ) { }
 
-  usuario: Usuario=new Usuario();
+  usuario: Usuario;
   numAlbums: number;
 
   ngOnInit(): void {
-    this.usuario = this.usuarioService.usuario
+    this.usuario = JSON.parse(sessionStorage.getItem('usuariologueado')) as Usuario;
     this.getNumAlbums();
   }
 

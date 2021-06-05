@@ -62,7 +62,7 @@
                     <div class="form-group row mt-4">
                         <label for="username" class="col-form-label col-6 text-left mt-1">Username</label>
                         <div class="inputFormulario p 0">
-                            <input type="text" class="form-control" name="username" placeholder="{{usuario.username}}" [(ngModel)]="usuario.username" #username="ngModel" minlength="3">
+                            <input type="text" class="form-control" name="username" placeholder="{{usuario.username}}" [(ngModel)]="usuarioEditado.username" #username="ngModel" minlength="3">
                         </div>
                     </div>
 
@@ -74,14 +74,14 @@
                     <div class="form-group row mt-4">
                         <label for="nombre" class="col-form-label col-6 text-left mt-1">Nombre</label>
                         <div class="inputFormulario p 0">
-                            <input type="text" class="form-control" name="nombre" placeholder="{{usuario.nombre}}" [(ngModel)]="usuario.nombre">
+                            <input type="text" class="form-control" name="nombre" placeholder="{{usuario.nombre}}" [(ngModel)]="usuarioEditado.nombre">
                         </div>
                     </div>
 
                     <div class="form-group row mt-4">
                         <label for="email" class="col-form-label col-6 text-left mt-1">E-Mail</label>
                         <div class="inputFormulario p 0">
-                            <input type="text" class="form-control" name="email" placeholder="{{usuario.email}}" [(ngModel)]="usuario.email" #correo="ngModel" email>
+                            <input type="text" class="form-control" name="email" placeholder="{{usuario.email}}" [(ngModel)]="usuarioEditado.email" #correo="ngModel" email>
                         </div>
                     </div>
 
@@ -93,7 +93,7 @@
                     <div class="form-group row mt-4">
                         <label for="password" class="col-form-label col-6 text-left mt-1">Contrase&ntilde;a</label>
                         <div class="inputFormulario p 0">
-                            <input type="password" class="form-control" name="password" placeholder="*****" minlength="3" [(ngModel)]="usuario.password" #contrasena="ngModel">
+                            <input type="password" class="form-control" name="password" placeholder="*****" minlength="3" [(ngModel)]="usuarioEditado.password" #contrasena="ngModel">
                         </div>
                     </div>
 
@@ -119,7 +119,7 @@
                         <div class="col-12 m-2">
                             <button class="btn btn-primary" role="button" (click)='editar()'>
                               <i class="bi bi-search"></i>
-                              Crear
+                              Guardar
                           </button>
                         </div>
                     </div>
