@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { map, catchError, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { Md5 } from 'ts-md5';
 
 @Injectable()
 export class UsuarioService {
@@ -69,15 +70,16 @@ export class UsuarioService {
   getUsuarioLogin(usuario: Usuario): Observable<any> {
     const urlEndpoint = this.url + "/usuarios/login";
     let params = new URLSearchParams();
+    let password = Md5.hashStr(usuario.password)
     params.set('grant_type', 'password');
     params.set('user', usuario.username);
-    params.set('pass', usuario.password);
-    console.log(params.toString());
+    params.set('pass', password);
     return this.http.post<any>(urlEndpoint + '?' + params.toString(), {});
   }
 
   update(username: string, usuario: Usuario): Observable<any> {
     let url = this.url + "/usuario";
+    usuario.username = Md5.hashStr(usuario.password);
 
     return this.http.post<any>(`${url}/${username}`, usuario).pipe(
       catchError(e => {
@@ -95,7 +97,7 @@ export class UsuarioService {
     let url = this.url + "/usuario";
     let params = new HttpParams()
       .set('username', usuario.username)
-      .set('password', usuario.password)
+      .set('password', Md5.hashStr(usuario.password))
       .set('nombre', usuario.nombre)
       .set('email', usuario.email);
 

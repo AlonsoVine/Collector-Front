@@ -23,7 +23,6 @@ export class CrearPerfilComponent implements OnInit {
 
   ngOnInit() {
     this.usuario = this.usuarioService.usuario;
-    console.log(Md5.hashStr("Hola"))
   }
 
   create(): void {

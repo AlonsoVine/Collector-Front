@@ -3,6 +3,7 @@ import { Usuario } from "../usuario";
 import { UsuarioService } from '../usuario.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
+import { Md5 } from 'ts-md5';
 
 @Component({
   selector: 'app-login',
@@ -34,6 +35,7 @@ export class LoginComponent implements OnInit {
       Swal.fire('Error Login', '¡username o password vacías!', 'error');
       return;
     }
+
     this.usuarioService.getUsuarioLogin(this.usuario).subscribe(
       response => {
         this.usuarioService.guardarUsuario(response.usuario);
