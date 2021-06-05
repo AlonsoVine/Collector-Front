@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Usuario } from './usuario';
 import { UsuarioService } from './usuario.service';
@@ -7,8 +7,8 @@ import { UsuarioService } from './usuario.service';
 
 @Component({
   selector: 'app-editar-perfil',
-  templateUrl: './editarperfil.component.html',
-  styleUrls: ['./editarperfil.component.css']
+  templateUrl: './editar-perfil.component.html',
+  styleUrls: ['./editar-perfil.component.css']
 })
 export class EditarPerfilComponent implements OnInit {
 

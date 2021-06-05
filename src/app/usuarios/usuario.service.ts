@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 @Injectable()
 export class UsuarioService {
 
-  private url : string = "http://localhost:8080/collector";
+  private url: string = "http://localhost:8080/collector";
 
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
@@ -18,7 +18,7 @@ export class UsuarioService {
     private router: Router
   ) { }
 
-  
+
   public get usuario(): Usuario {
     if (sessionStorage.getItem('usuariologueado') != null) {
       return JSON.parse(sessionStorage.getItem('usuariologueado')) as Usuario;
@@ -94,10 +94,10 @@ export class UsuarioService {
   create(usuario: Usuario): Observable<Usuario> {
     let url = this.url + "/usuario";
     let params = new HttpParams()
-    .set('username', usuario.username)
-    .set('password', usuario.password)
-    .set('nombre', usuario.nombre)
-    .set('email', usuario.email);
+      .set('username', usuario.username)
+      .set('password', usuario.password)
+      .set('nombre', usuario.nombre)
+      .set('email', usuario.email);
 
     return this.http.post(url, params).pipe(
       map((response: any) => response as Usuario),

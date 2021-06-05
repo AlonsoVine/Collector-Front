@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import localeES from '@angular/common/locales/es';
@@ -17,9 +17,9 @@ import { InicioComponent } from './inicio/inicio.component';
 import { HomeComponent } from './home/home.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { UsuariodetalleComponent } from './usuarios/usuariodetalle.component';
-import { FormComponent } from './usuarios/form.component';
+import { CrearPerfilComponent } from './usuarios/crear-perfil.component';
+import { EditarPerfilComponent } from './usuarios/editar-perfil.component';
 import { LoginComponent } from './usuarios/login.component';
-import { EditarPerfilComponent } from './usuarios/editarperfil.component';
 import { BuscadorComponent } from './buscador/buscador.component';
 import { BuscadorUsuariosComponent } from './usuarios/buscador/buscador-usuarios/buscador-usuarios.component';
 import { CartaComponent } from './album/carta/carta.component';
@@ -44,10 +44,10 @@ const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'inicio', component: InicioComponent },
   { path: 'home', component: HomeComponent, },
-  { path: 'crearCuenta', component: FormComponent },
+  { path: 'crearCuenta', component: CrearPerfilComponent },
   { path: 'usuarios', component: UsuariosComponent, },
   { path: 'usuarios/page/:page', component: UsuariosComponent },
-  { path: 'usuarios/form/:id', component: FormComponent },
+  { path: 'usuarios/form/:id', component: CrearPerfilComponent },
   { path: 'login', component: LoginComponent },
   { path: 'perfil', component: UsuariodetalleComponent},
   { path: 'albumes', component: AlbumesComponent },
@@ -74,7 +74,7 @@ const routes: Routes = [
     UsuariosComponent,
     UsuariodetalleComponent,
     EditarPerfilComponent,
-    FormComponent,
+    CrearPerfilComponent,
     HomeComponent,
     LoginComponent,
     AlbumesComponent,
@@ -105,7 +105,7 @@ const routes: Routes = [
     AlbumService,
     CartaService,
 
-    FormComponent,
+    CrearPerfilComponent,
     UsuariodetalleComponent,
     EditarPerfilComponent,
     FormAlbumComponent,
