@@ -17,48 +17,40 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private usuarioService: UsuarioService,
-    private router:Router
+    private router: Router
   ) {
     this.usuario = new Usuario();
   }
 
   ngOnInit(): void {
-    if(this.usuarioService.isAuthenticated()){
-      Swal.fire('Login', `Hola ${this.usuarioService.usuario.username} ya estás autenticado`, 'info');
-      this.router.navigate(['/albumes']);
-    }
   }
 
-  cerrarSesion():void{
+  cerrarSesion(): void {
     localStorage.removeItem('usuariologueado');
   }
 
-  loguear():void{
-    if(this.usuario.username == null || this.usuario.password == null){
+  loguear(): void {
+    if (this.usuario.username == null || this.usuario.password == null) {
       Swal.fire('Error Login', '¡username o password vacías!', 'error');
       return;
     }
     this.usuarioService.getUsuarioLogin(this.usuario).subscribe(
-      response=>{
-        //console.log(response);
-        //console.log(JSON.parse(atob(response.access_token.split(".")[1])));
+      response => {
         this.usuarioService.guardarUsuario(response.usuario);
 
         let usuario = this.usuarioService.usuario;
         this.router.navigate(['/albumes']);
         Swal.fire('Login', `Bienvenido ${usuario.username}, has iniciado sesión con éxito`, 'success');
       },
-      err=>{
-        if(err.status == 400 || err.status == 401){
+      err => {
+        if (err.status == 400 || err.status == 401) {
           Swal.fire('Error Login', '¡username o clave incorrectas!', 'error');
         }
       }
     );
   }
 
-  getThisUsuarioLogueado(){
+  getThisUsuarioLogueado() {
     return this.usuario;
   }
-
-
 }

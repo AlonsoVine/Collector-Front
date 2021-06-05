@@ -19,8 +19,7 @@ export class EditarPerfilComponent implements OnInit {
 
   constructor(
     private usuarioService: UsuarioService,
-    private router: Router,
-    private activatedRoute: ActivatedRoute
+    private router: Router
   ) {
     this.usuario = usuarioService.usuario;
     this.usuarioEditado = new Usuario();
@@ -33,13 +32,10 @@ export class EditarPerfilComponent implements OnInit {
     this.usuarioService.update(this.usuario.username, this.usuarioEditado).subscribe(
       response => {
         this.usuario = response;
-        sessionStorage.setItem("usuariologueado", JSON.stringify(this.usuario));
+        this.usuarioService.guardarUsuario(this.usuario);
         Swal.fire(`Perfil editado`, `Usuario con nombre ${this.usuario.nombre}`, 'success');
-        console.log(this.usuario);
         this.router.navigate(['/perfil']);
-        
       }
     )
   }
-
 }

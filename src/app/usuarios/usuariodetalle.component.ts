@@ -19,7 +19,7 @@ export class UsuariodetalleComponent implements OnInit {
   numAlbums: number;
 
   ngOnInit(): void {
-    this.usuario = JSON.parse(sessionStorage.getItem('usuariologueado')) as Usuario;
+    this.usuario = this.usuarioService.usuario;
     this.getNumAlbums();
   }
 

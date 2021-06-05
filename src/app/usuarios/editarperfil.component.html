@@ -93,7 +93,7 @@
                     <div class="form-group row mt-4">
                         <label for="password" class="col-form-label col-6 text-left mt-1">Contrase&ntilde;a</label>
                         <div class="inputFormulario p 0">
-                            <input type="password" class="form-control" name="password" placeholder="*****" minlength="3" [(ngModel)]="usuarioEditado.password" #contrasena="ngModel">
+                            <input type="password" class="form-control" name="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;" minlength="3" [(ngModel)]="usuarioEditado.password" #contrasena="ngModel">
                         </div>
                     </div>
 
@@ -105,12 +105,12 @@
                     <div class="form-group row mt-4">
                         <label for="passwordC" class="col-form-label col-6 text-left mt-1">Confirmar contrase&ntilde;a</label>
                         <div class="inputFormulario p 0">
-                            <input type="password" class="form-control" name="passwordC" placeholder="*****" [(ngModel)]="passwordConfirmada" #contrasenaConfirmada="ngModel">
+                            <input type="password" class="form-control" name="passwordC" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;" [(ngModel)]="passwordConfirmada" #contrasenaConfirmada="ngModel">
                         </div>
                     </div>
 
-                    <div class="alert alert-danger" *ngIf="((contrasenaConfirmada.invalid || (passwordConfirmada != usuario.password)) && (contrasenaConfirmada.dirty || contrasenaConfirmada.touched))">
-                        <div *ngIf="passwordConfirmada != usuario.password">Las contraseñas deben coincidir</div>
+                    <div class="alert alert-danger" *ngIf="((contrasenaConfirmada.invalid || (passwordConfirmada != usuarioEditado.password)) && (contrasenaConfirmada.dirty || contrasenaConfirmada.touched))">
+                        <div *ngIf="passwordConfirmada != usuarioEditado.password">Las contraseñas deben coincidir</div>
                         <div *ngIf="contrasenaConfirmada.errors.required">Rellene el campo por favor</div>
                         <div *ngIf="contrasenaConfirmada.errors.minlength">Debe de tener un mínimo de tres caracteres</div>
                     </div>
