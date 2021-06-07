@@ -30,6 +30,7 @@ import { AlbumesService } from './albumes/albumes.service';
 import { AlbumComponent } from './albumes/album/album.component';
 import { AlbumService } from './albumes/album/album.service';
 import { CartaService } from './albumes/carta/carta.service';
+import { SimboloService } from './albumes/simbolos/simbolo.service';
 
 import { PaginadorAlbumesComponent } from './paginador/paginador-albumes/paginador-albumes.component';
 import { PaginadorAlbumComponent } from './paginador/paginador-album/paginador-album.component';
@@ -103,6 +104,7 @@ const routes: Routes = [
     AlbumesService,
     AlbumService,
     CartaService,
+    SimboloService,
 
     CrearPerfilComponent,
     UsuarioDetalleComponent,

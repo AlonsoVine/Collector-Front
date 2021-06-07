@@ -7,6 +7,8 @@ import Swal from 'sweetalert2';
 import { AlbumesService } from 'src/app/albumes/albumes.service';
 import { UsuarioService } from 'src/app/usuarios/usuario.service';
 import { AlbumService } from '../album/album.service';
+import { SimboloService } from '../simbolos/simbolo.service';
+import { Simbolo } from '../simbolos/simbolo';
 
 @Component({
   selector: 'app-carta',
@@ -21,6 +23,7 @@ export class CartaComponent implements OnInit {
 
   nombre_carta: string;
   carta: Carta;
+  simbolo_carta: Simbolo;
   albumes: Map<string, string> = new Map<string, string>();
 
   constructor(
@@ -28,7 +31,9 @@ export class CartaComponent implements OnInit {
     private albumesService: AlbumesService,
     private albumService: AlbumService,
     private usuarioService: UsuarioService,
-    private activatedRoute: ActivatedRoute
+    private simboloService: SimboloService,
+    private activatedRoute: ActivatedRoute,
+
     ) {
    }
 
@@ -47,8 +52,16 @@ export class CartaComponent implements OnInit {
   obtenerCarta(): void {
     this.carta = new Carta();
     this.carta.scryfallId = this.scryfall_id;
-    this.cartaService.getCarta(this.carta).subscribe();
+    this.cartaService.getCarta(this.carta).subscribe(() => {
+      this.obtenerSimbolo();
+    });
     this.cartaService.getImagenesCarta(this.carta).subscribe();
+  }
+
+  obtenerSimbolo(): void {
+    this.simboloService.getSimbolo(this.carta.setCode).subscribe(response => {
+      this.simbolo_carta = response as Simbolo;
+    })
   }
 
   obtenerAlbumes() {
