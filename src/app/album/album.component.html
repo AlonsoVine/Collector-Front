@@ -16,9 +16,9 @@
                     </div>
                     <hr>
 
-                    <form class="form-inline md-form form-sm mb-4" *ngIf="cartas.length">
-                        <input class="form-control form-control-sm mr-3" type="text" placeholder="Busca entre las cartas del album" aria-label="Search" mdbInput>
-                        <button type="submit" class="btn btn-primary">
+                    <form class="form-inline md-form form-sm mb-4 row text-center" *ngIf="cartas.length">
+                        <input class="form-control form-control-sm mr-3 ml-4 col-9" type="text" placeholder="Busca entre las cartas del album" aria-label="Search" mdbInput>
+                        <button type="submit" class="btn btn-primary col-2">
                             <i class="bi bi-search"></i>
                             <span class="fa fa-search"></span>
                             Buscar
@@ -43,7 +43,7 @@
                                     <div class="row">
                                         <div class="col-4" *ngFor="let carta of cartas">
                                             <li routerLinkActive="active">
-                                                <a class="link-carta" routerLink="/carta/{{carta.scryfallId}}">
+                                                <a class="link-carta" routerLink="/carta/{{carta.scryfallId}}/{{carta.id}}">
                                                     <img src="{{carta.imagenesCarta.normal}}" class="carta" width="100%" height="100%">
                                                     <div class="datos-carta">
                                                         {{carta.name}}<br> Coste de maná: {{carta.manaCost}}<br> Edición: {{carta.setCode}}

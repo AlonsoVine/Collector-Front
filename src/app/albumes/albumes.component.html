@@ -35,9 +35,11 @@
 
             <div class="container">
                 <div class="row">
+                    <div class="col-12 row mt-3 text-center d-flex justify-content-center" *ngIf="albums?.length==0 ">
+                        <div class="alert alert-info col-7">
+                            No hay ningún album aún, ¿a qué esperas?
+                        </div>
 
-                    <div class="alert alert-info mt-3" *ngIf="albums?.length==0 ">
-                        No hay ningún album aún, ¿a qué esperas?
                     </div>
 
                     <ul class="listaAlbumes" *ngIf="albums?.length>0">

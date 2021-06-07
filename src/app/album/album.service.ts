@@ -25,4 +25,10 @@ export class AlbumService {
       )
     );
   }
+
+  putCartaInAlbum (carta: Carta, id_album: number): Observable<any> {
+    let url = "http://localhost:8080/collector/album";
+    let params = new HttpParams().set("carta", carta.scryfallId);
+    return this.http.put(`${url}/${id_album}`, params);
+  }
 }

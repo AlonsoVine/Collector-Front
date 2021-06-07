@@ -79,8 +79,9 @@ export class UsuarioService {
 
   update(username: string, usuario: Usuario): Observable<any> {
     let url = this.url + "/usuario";
-    usuario.username = Md5.hashStr(usuario.password);
-
+    if (usuario.password) {
+      usuario.username = Md5.hashStr(usuario.password);
+    }
     return this.http.post<any>(`${url}/${username}`, usuario).pipe(
       catchError(e => {
         if (e.status == 400) {

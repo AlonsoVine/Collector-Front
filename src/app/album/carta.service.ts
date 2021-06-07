@@ -17,12 +17,12 @@ export class CartaService {
     let url = this.url + "/mtgdb/carta";
     return this.http.get(`${url}/${carta.scryfallId}`).pipe(
       map((response: any) => {
-        //carta.id = response.id;
         carta.name = response.name;
         carta.manaCost = response.manaCost;
         carta.convertedManaCost = response.convertedManaCost;
         carta.colors = response.colors;
         carta.setCode = response.setCode;
+        carta.text = response.text;
       })
     );
   }

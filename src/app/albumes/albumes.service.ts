@@ -26,6 +26,17 @@ export class AlbumesService {
     );
   }
 
+  getAllAlbumes(username: string): Observable<any> {
+    let url = this.url + "/user";
+    return this.http.get(`${url}/${username}/albums/all`).pipe(
+      map((response: any) => {
+        
+        return response as Album[];
+      }
+      )
+    );
+  }
+
   getAlbum(id: number):Observable<any>{
     let url = this.url + "/album";
     return this.http.get(`${url}/${id}`).pipe(
@@ -35,20 +46,6 @@ export class AlbumesService {
     )
 
   }
-
-
-
-  /*getPagina(id: string, page: string): Observable<any> {
-    this.url = "http://localhost:8080/collector/album";
-    return this.http.get(`${this.url}/${id}/${page}`).pipe(
-      map((response: any) => {
-        (response.content.externalId as string[]).map(carta => {
-          return carta;
-        });
-        return response;
-      })
-    );
-  }*/
 
   createAlbum(nombreAlbum: string, username: string): Observable<any>{
     let url = this.url + "/album";
@@ -63,7 +60,4 @@ export class AlbumesService {
       })
     );
   }
-
-
-
 }

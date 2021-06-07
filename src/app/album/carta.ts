@@ -7,6 +7,7 @@ export class Carta {
   colors: string;
   rarity: string;
   setCode: string;
+  text: string;
   scryfallId: string;
   scryfallIllustrationId: string;
   scryfallOracleId: string;
