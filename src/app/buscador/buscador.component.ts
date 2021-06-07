@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Carta } from '../album/carta';
-import { CartaService } from '../album/carta.service';
+import { Carta } from '../albumes/carta/carta';
+import { CartaService } from '../albumes/carta/carta.service';
 
 @Component({
   selector: 'app-buscador',

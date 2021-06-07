@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { Album } from '../albumes/album';
+import { Album } from './album/album';
 import { AlbumesService } from '../albumes/albumes.service';
 import { UsuarioService } from '../usuarios/usuario.service';
 import { Usuario } from '../usuarios/usuario';

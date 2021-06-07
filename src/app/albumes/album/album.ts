@@ -1,4 +1,4 @@
-import { Usuario } from "../usuarios/usuario";
+import { Usuario } from "../../usuarios/usuario";
 
 export class Album {
 

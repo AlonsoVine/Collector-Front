@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Album } from './album';
+import { Album } from './album/album';
 import { AlbumesService } from './albumes.service';
 import { Usuario } from '../usuarios/usuario';
 import { UsuarioService } from '../usuarios/usuario.service';

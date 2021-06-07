@@ -1,13 +1,13 @@
 import { HttpParams } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { Carta } from '../carta';
-import { CartaService } from '../carta.service';
+import { Carta } from './carta';
+import { CartaService } from './carta.service';
 import Swal from 'sweetalert2';
 import { AlbumesService } from 'src/app/albumes/albumes.service';
-import { Album } from 'src/app/albumes/album';
+import { Album } from 'src/app/albumes/album/album';
 import { UsuarioService } from 'src/app/usuarios/usuario.service';
-import { AlbumService } from '../album.service';
+import { AlbumService } from '../album/album.service';
 
 @Component({
   selector: 'app-carta',

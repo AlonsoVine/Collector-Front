@@ -22,15 +22,15 @@ import { EditarPerfilComponent } from './usuarios/editar-perfil/editar-perfil.co
 import { LoginComponent } from './usuarios/login/login.component';
 import { BuscadorComponent } from './buscador/buscador.component';
 import { BuscadorUsuariosComponent } from './usuarios/buscador/buscador-usuarios/buscador-usuarios.component';
-import { CartaComponent } from './album/carta/carta.component';
+import { CartaComponent } from './albumes/carta/carta.component';
 import { AlbumesComponent } from './albumes/albumes.component';
 
 import { UsuarioService } from './usuarios/usuario.service';
 import { AlbumesService } from './albumes/albumes.service';
 import { FormAlbumComponent } from './albumes/formalbum.component';
-import { AlbumComponent } from './album/album.component';
-import { AlbumService } from './album/album.service';
-import { CartaService } from './album/carta.service';
+import { AlbumComponent } from './albumes/album/album.component';
+import { AlbumService } from './albumes/album/album.service';
+import { CartaService } from './albumes/carta/carta.service';
 
 import { PaginadorAlbumesComponent } from './paginador/paginador-albumes/paginador-albumes.component';
 import { PaginadorAlbumComponent } from './paginador/paginador-album/paginador-album.component';

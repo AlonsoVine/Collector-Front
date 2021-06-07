@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Album } from '../albumes/album';
-import { AlbumesService } from '../albumes/albumes.service';
+import { Album } from './album';
+import { AlbumesService } from '../albumes.service';
 import { AlbumService } from './album.service';
-import { Carta } from './carta';
-import { CartaService } from './carta.service';
+import { Carta } from '../carta/carta';
+import { CartaService } from '../carta/carta.service';
 
 @Component({
   selector: 'app-album',
