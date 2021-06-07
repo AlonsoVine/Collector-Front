@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Carta } from '../albumes/carta/carta';
 import { CartaService } from '../albumes/carta/carta.service';
 
@@ -12,7 +12,7 @@ export class BuscadorComponent implements OnInit {
 
   cartasBusqueda: Carta[];
   textoBuscado: string;
-  tipoBusqueda: string;
+  tipoBusqueda: string = "oracle";
   paginador: any;
   pagina: number;
 
@@ -20,7 +20,8 @@ export class BuscadorComponent implements OnInit {
 
   constructor(
     private cartaService: CartaService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -29,10 +30,16 @@ export class BuscadorComponent implements OnInit {
       if (!this.pagina) {
         this.pagina = 0;
       }
+      this.textoBuscado = params.get('txt');
+      if (this.textoBuscado) {
+        this.getCartas();
+      }
     });
+  }
 
-    if (!this.tipoBusqueda){
-      this.tipoBusqueda = "oracle";
+  buscar() {
+    if (this.textoBuscado) {
+      this.router.navigate(['buscar', this.textoBuscado]);
     }
   }
 

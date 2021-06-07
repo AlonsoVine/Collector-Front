@@ -12,6 +12,8 @@ export class PaginadorBuscadorComponent implements OnInit {
 
   @Input() carta: Carta;
 
+  @Input() textoBuscado: string;
+
   paginas: number[];
 
   desde:number;

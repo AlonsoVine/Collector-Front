@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Album } from './album/album';
 import { AlbumesService } from './albumes.service';
 import { Usuario } from '../usuarios/usuario';
 import { UsuarioService } from '../usuarios/usuario.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -21,7 +22,8 @@ export class AlbumesComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private albumesService: AlbumesService,
-    private usuarioService: UsuarioService
+    private usuarioService: UsuarioService,
+    private router: Router
   ) {
     this.usuario = this.usuarioService.usuario
   }
@@ -45,4 +47,31 @@ export class AlbumesComponent implements OnInit {
       });
   }
 
+  crearAlbum () {
+    Swal.fire({
+      title: "Nuevo album",
+      text: "Ponle un título a tu album",
+      inputPlaceholder: "Album Épico",
+      input: 'text',
+      showCancelButton: true,
+      inputValidator: function (value) {
+        return new Promise(function (resolve, reject) {
+          if (value !== '') {
+            resolve(null);
+          } else {
+            resolve('Debes escoger un nombre para tu album');
+          }
+        });
+      }
+  }).then((result) => {
+      if (result.isConfirmed) {
+        this.albumesService.createAlbum(result.value, this.usuario.username).subscribe(
+          (response) => {
+            this.router.navigate(['album', response.id]);
+            Swal.fire('Album creado', `El album ${result.value} ha sido creado`, 'success');
+          
+        });
+      }
+  });
+  }
 }

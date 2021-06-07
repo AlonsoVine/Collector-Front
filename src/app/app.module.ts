@@ -27,7 +27,6 @@ import { AlbumesComponent } from './albumes/albumes.component';
 
 import { UsuarioService } from './usuarios/usuario.service';
 import { AlbumesService } from './albumes/albumes.service';
-import { FormAlbumComponent } from './albumes/formalbum.component';
 import { AlbumComponent } from './albumes/album/album.component';
 import { AlbumService } from './albumes/album/album.service';
 import { CartaService } from './albumes/carta/carta.service';
@@ -55,8 +54,9 @@ const routes: Routes = [
   { path: 'album/:id', component: AlbumComponent },
   { path: 'album/:id/page/:page', component: AlbumComponent },
   { path: 'editarPerfil', component: EditarPerfilComponent},
-  { path: 'crearAlbum', component: FormAlbumComponent },
   { path: 'buscar', component: BuscadorComponent },
+  { path: 'buscar/:txt', component: BuscadorComponent },
+  { path: 'buscar/:txt/:page', component: BuscadorComponent },
   { path: 'buscarUsuarios', component: BuscadorUsuariosComponent },
   { path: 'carta/:scid/:id', component: CartaComponent },
   { path: 'carta/:scid', component: CartaComponent }
@@ -78,7 +78,6 @@ const routes: Routes = [
     HomeComponent,
     LoginComponent,
     AlbumesComponent,
-    FormAlbumComponent,
     AlbumComponent,
     BuscadorComponent,
 
@@ -108,7 +107,6 @@ const routes: Routes = [
     CrearPerfilComponent,
     UsuarioDetalleComponent,
     EditarPerfilComponent,
-    FormAlbumComponent,
     { provide: LOCALE_ID, useValue: 'es' }
   ],
   bootstrap: [AppComponent]
