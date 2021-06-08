@@ -43,6 +43,7 @@ registerLocaleData(localeES, 'es');
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'inicio', component: InicioComponent },
+  { path: 'home', component: InicioComponent, },
   { path: 'crearCuenta', component: CrearPerfilComponent },
   { path: 'usuarios', component: UsuariosComponent, },
   { path: 'usuarios/page/:page', component: UsuariosComponent },
