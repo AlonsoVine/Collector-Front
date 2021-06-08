@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Md5 } from 'ts-md5';
 
@@ -23,7 +23,9 @@ export class OpcionesAlbumComponent implements OnInit {
   albumEditado: Album;
 
   constructor(
+    private albumService: AlbumService,
     private albumesService: AlbumesService,
+    private router: Router,
     private activatedRoute: ActivatedRoute
   ) {
     this.albumEditado = new Album;
@@ -41,7 +43,11 @@ export class OpcionesAlbumComponent implements OnInit {
   }
 
   editar(): void {
-
-    
+    this.albumService.update(this.album.id, this.album.nombre).subscribe(
+      response => {
+        this.album = response;
+        this.router.navigate(['/album', this.album.id]);
+      }
+    )
   }
 }
