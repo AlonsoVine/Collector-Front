@@ -13,8 +13,7 @@ import localeES from '@angular/common/locales/es';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { InicioComponent } from './inicio/inicio.component';
-import { HomeComponent } from './home/home.component';
+import { InicioComponent } from './home/inicio.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { UsuarioDetalleComponent } from './usuarios/perfil/usuario-detalle.component';
 import { CrearPerfilComponent } from './usuarios/crear-perfil/crear-perfil.component';
@@ -31,7 +30,7 @@ import { AlbumesService } from './albumes/albumes.service';
 import { AlbumComponent } from './albumes/album/album.component';
 import { AlbumService } from './albumes/album/album.service';
 import { CartaService } from './cartas/carta.service';
-import { SimboloService } from './cartas/ediciones/edicion.service';
+import { EdicionService } from './cartas/ediciones/edicion.service';
 
 import { PaginadorAlbumesComponent } from './paginador/paginador-albumes/paginador-albumes.component';
 import { PaginadorAlbumComponent } from './paginador/paginador-album/paginador-album.component';
@@ -44,7 +43,6 @@ registerLocaleData(localeES, 'es');
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'inicio', component: InicioComponent },
-  { path: 'home', component: HomeComponent, },
   { path: 'crearCuenta', component: CrearPerfilComponent },
   { path: 'usuarios', component: UsuariosComponent, },
   { path: 'usuarios/page/:page', component: UsuariosComponent },
@@ -77,7 +75,6 @@ const routes: Routes = [
     UsuarioDetalleComponent,
     EditarPerfilComponent,
     CrearPerfilComponent,
-    HomeComponent,
     LoginComponent,
     AlbumesComponent,
     AlbumComponent,
@@ -106,7 +103,7 @@ const routes: Routes = [
     AlbumesService,
     AlbumService,
     CartaService,
-    SimboloService,
+    EdicionService,
 
     CrearPerfilComponent,
     UsuarioDetalleComponent,
