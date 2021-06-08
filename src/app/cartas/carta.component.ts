@@ -34,18 +34,16 @@ export class CartaComponent implements OnInit {
     private simboloService: SimboloService,
     private activatedRoute: ActivatedRoute,
 
-    ) {
-   }
+  ) {
+  }
 
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe(params =>{
+    this.activatedRoute.paramMap.subscribe(params => {
       this.id_carta = parseInt(params.get('id'));
       this.scryfall_id = params.get('scid');
       this.carta_en_album = this.id_carta ? true : false;
       this.obtenerCarta();
-      if (!this.carta_en_album) {
-        this.obtenerAlbumes();
-      }
+      this.obtenerAlbumes();
     })
   }
 
@@ -93,9 +91,9 @@ export class CartaComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.albumService.putCartaInAlbum(this.carta, result.value).subscribe(() => {
-          Swal.fire('Carta añadida', `La carta ${this.carta.name} ha sido añadida al album seleccionado correctamente` , 'success');
+          Swal.fire('Carta añadida', `La carta ${this.carta.name} ha sido añadida al album seleccionado correctamente`, 'success');
         });
       }
     });
   }
- }
+}
