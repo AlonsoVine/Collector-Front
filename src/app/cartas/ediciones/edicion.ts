@@ -1,4 +1,4 @@
-export class Simbolo {
+export class Edicion {
     code: string;
     name: string;
     block_code: string;

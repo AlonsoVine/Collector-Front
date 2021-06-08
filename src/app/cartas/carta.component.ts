@@ -7,8 +7,8 @@ import Swal from 'sweetalert2';
 import { AlbumesService } from 'src/app/albumes/albumes.service';
 import { UsuarioService } from 'src/app/usuarios/usuario.service';
 import { AlbumService } from '../albumes/album/album.service';
-import { SimboloService } from './ediciones/edicion.service';
-import { Simbolo } from './ediciones/edicion';
+import { EdicionService } from './ediciones/edicion.service';
+import { Edicion } from './ediciones/edicion';
 
 @Component({
   selector: 'app-carta',
@@ -23,7 +23,7 @@ export class CartaComponent implements OnInit {
 
   nombre_carta: string;
   carta: Carta;
-  simbolo_carta: Simbolo;
+  simbolo_carta: Edicion;
   albumes: Map<string, string> = new Map<string, string>();
 
   constructor(
@@ -31,7 +31,7 @@ export class CartaComponent implements OnInit {
     private albumesService: AlbumesService,
     private albumService: AlbumService,
     private usuarioService: UsuarioService,
-    private simboloService: SimboloService,
+    private simboloService: EdicionService,
     private activatedRoute: ActivatedRoute,
 
   ) {
@@ -57,8 +57,8 @@ export class CartaComponent implements OnInit {
   }
 
   obtenerSimbolo(): void {
-    this.simboloService.getSimbolo(this.carta.setCode).subscribe(response => {
-      this.simbolo_carta = response as Simbolo;
+    this.simboloService.getEdicion(this.carta.setCode).subscribe(response => {
+      this.simbolo_carta = response as Edicion;
     })
   }
 
