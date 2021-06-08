@@ -3,8 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Album } from './album';
 import { AlbumesService } from '../albumes.service';
 import { AlbumService } from './album.service';
-import { Carta } from '../carta/carta';
-import { CartaService } from '../carta/carta.service';
+import { Carta } from '../../cartas/carta';
+import { CartaService } from '../../cartas/carta.service';
 
 @Component({
   selector: 'app-album',

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
-import { Carta } from 'src/app/albumes/carta/carta';
+import { Carta } from 'src/app/cartas/carta';
 
 @Component({
   selector: 'app-paginador-buscador',

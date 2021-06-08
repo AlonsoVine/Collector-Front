@@ -6,9 +6,9 @@ import { CartaService } from './carta.service';
 import Swal from 'sweetalert2';
 import { AlbumesService } from 'src/app/albumes/albumes.service';
 import { UsuarioService } from 'src/app/usuarios/usuario.service';
-import { AlbumService } from '../album/album.service';
-import { SimboloService } from '../simbolos/simbolo.service';
-import { Simbolo } from '../simbolos/simbolo';
+import { AlbumService } from '../albumes/album/album.service';
+import { SimboloService } from './ediciones/edicion.service';
+import { Simbolo } from './ediciones/edicion';
 
 @Component({
   selector: 'app-carta',
