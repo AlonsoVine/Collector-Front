@@ -12,7 +12,7 @@ export class BuscadorComponent implements OnInit {
 
   cartasBusqueda: Carta[];
   textoBuscado: string;
-  tipoBusqueda: string = "oracle";
+  tipoBusqueda: string;
   paginador: any;
   pagina: number;
 
@@ -30,6 +30,10 @@ export class BuscadorComponent implements OnInit {
       if (!this.pagina) {
         this.pagina = 0;
       }
+      this.tipoBusqueda = params.get('tipo')
+      if (!this.tipoBusqueda) {
+        this.tipoBusqueda = "oracle";
+      }
       this.textoBuscado = params.get('txt');
       if (this.textoBuscado) {
         this.getCartas();
@@ -39,7 +43,7 @@ export class BuscadorComponent implements OnInit {
 
   buscar() {
     if (this.textoBuscado) {
-      this.router.navigate(['buscar', this.textoBuscado]);
+      this.router.navigate(['buscar', this.tipoBusqueda, this.textoBuscado]);
     }
   }
 

@@ -56,12 +56,11 @@ const routes: Routes = [
   { path: 'album/:id/page/:page', component: AlbumComponent },
   { path: 'editarPerfil', component: EditarPerfilComponent},
   { path: 'buscar', component: BuscadorComponent },
-  { path: 'buscar/:txt', component: BuscadorComponent },
-  { path: 'buscar/:txt/:page', component: BuscadorComponent },
+  { path: 'buscar/:tipo/:txt', component: BuscadorComponent },
+  { path: 'buscar/:tipo/:txt/:page', component: BuscadorComponent },
   { path: 'buscarUsuarios', component: BuscadorUsuariosComponent },
   { path: 'carta/:scid/:id', component: CartaComponent },
   { path: 'carta/:scid', component: CartaComponent }
-
 
 ]
 

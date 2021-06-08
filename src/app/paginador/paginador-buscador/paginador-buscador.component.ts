@@ -14,6 +14,8 @@ export class PaginadorBuscadorComponent implements OnInit {
 
   @Input() textoBuscado: string;
 
+  @Input() tipoBusqueda: string;
+
   paginas: number[];
 
   desde:number;
