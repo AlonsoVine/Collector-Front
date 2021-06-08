@@ -3,32 +3,54 @@
 </ul>
 <div class="row d-flex justify-content-center col-12 text-center">
     <div class="card col-6 card1">
+        
+        <!---Título-->
         <div class="card-header row">
-            <div class="titulofiltros mt-2">Opciones Album {{album.nombre}}</div>
+            <div class="titulofiltros mt-2">Opciones Album: {{album.nombre}}</div>
         </div>
         <div class="cad-body row col-12 text-center mx-0 alturaminima">
             <div class="col-12">
-                <form #formularioOpciones="ngForm" method="post">
+                
+                <!---Editar nombre-->
+                <form class="row mt-3" #formularioOpciones="ngForm" method="post">
 
-                    <div class="form-group row mt-4">
-                        <label for="nombre" class="col-form-label col-6 text-left mt-1">Nombre</label>
-                        <div class="inputFormulario p 0">
-                            <input type="text" class="form-control" name="nombre">
+                    <div class="form-group col-9">
+                        <div class="row">
+                            <label for="nombre" class="form-label text-left m-2">Nombre</label>
+                            <div class="inputFormulario p 0">
+                                <input type="text" class="form-control" name="nombre" placeholder="Nuevo nombre">
+                            </div>
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <div class="col-12 m-2">
+                    <div class="form-group col-2">
                             <button class="btn btn-primary" role="button" (click)='editar()'>
                               <i class="bi bi-search"></i>
-                              Guardar
+                              Editar
                           </button>
-                        </div>
                     </div>
-
                 </form>
-            </div>
+                <hr>
+                
+                <!---Insertar en masa-->
+                <div class="row">
 
+                </div>
+
+                
+                <!---Exportar album a zip-->
+                <div class="row">
+                    
+                </div>
+
+                <!---Eliminar Album-->
+                <div class="row">
+                    
+                </div>
+
+
+
+            </div>
         </div>
     </div>
 </div>

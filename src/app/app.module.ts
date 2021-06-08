@@ -31,7 +31,7 @@ import { AlbumesService } from './albumes/albumes.service';
 import { AlbumComponent } from './albumes/album/album.component';
 import { AlbumService } from './albumes/album/album.service';
 import { CartaService } from './cartas/carta.service';
-import { SimboloService } from './cartas/ediciones/edicion.service';
+import { EdicionService } from './cartas/ediciones/edicion.service';
 
 import { PaginadorAlbumesComponent } from './paginador/paginador-albumes/paginador-albumes.component';
 import { PaginadorAlbumComponent } from './paginador/paginador-album/paginador-album.component';
@@ -55,7 +55,7 @@ const routes: Routes = [
   { path: 'albumes/:page', component: AlbumesComponent },
   { path: 'album/:id', component: AlbumComponent },
   { path: 'album/:id/page/:page', component: AlbumComponent },
-  { path: 'opcionesAlbum', component: OpcionesAlbumComponent },
+  { path: 'album/:id/config', component: OpcionesAlbumComponent },
   { path: 'editarPerfil', component: EditarPerfilComponent},
   { path: 'buscar', component: BuscadorComponent },
   { path: 'buscar/:tipo/:txt', component: BuscadorComponent },

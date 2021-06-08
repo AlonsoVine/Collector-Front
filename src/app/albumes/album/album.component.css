@@ -37,3 +37,7 @@ ul {
 .config-icon{
     border-radius: 35px;
 }
+
+#ajustes:hover{
+    transform: scale(110%);
+}

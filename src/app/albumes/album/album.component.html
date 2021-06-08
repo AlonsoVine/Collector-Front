@@ -10,20 +10,21 @@
                 <div class="col-8">
                     <div class="row">
                         <div class="col-10">
+                            <!---Título Album-->
                             <h1>
                                 <img class="album-icon" width="32" height="32" class="mr-3" src="./assets/images/icons/album-icon.svg"> {{album.nombre}}
                             </h1>
                         </div>
+                        
+                        <!---Enlace a opciones Album-->
                         <div class="col-2">
-                            <button class="btn btn-primary botonEditar config-icon" type="button" name="button"
-                                [routerLink]="['/opcionesAlbum']">
-                                <img class="text-center" width="32" height="32" src="./assets/images/icons/config-icon.svg">
-                            </button>
+                            <img class="text-center" id="ajustes" width="30" height="30" [routerLink]="['/album/{{album.id}}/config']" src="./assets/images/icons/fat-config-icon.svg">
                         </div>
                     </div>
                     
                     <hr>
 
+                    <!---Consejo si no hay cartas en tu album-->
                     <form class="form-inline md-form form-sm mb-4 row text-center" *ngIf="cartas.length">
                         <input class="form-control form-control-sm mr-3 ml-4 col-9" type="text" placeholder="Busca entre las cartas del album" aria-label="Search" mdbInput>
                         <button type="submit" class="btn btn-primary col-2">
@@ -33,6 +34,7 @@
                         </button>
                     </form>
 
+                    <!---Cartas del album-->
                     <div class="container">
                         <div class="row">
                             <div class="col-12 d-flex justify-content-center">
