@@ -30,13 +30,17 @@ export class EditarPerfilComponent implements OnInit {
   }
 
   editar(): void {
-    this.usuarioService.update(this.usuario.username, this.usuarioEditado).subscribe(
-      response => {
-        this.usuario = response;
-        this.usuarioService.guardarUsuario(this.usuario);
-        Swal.fire(`Perfil editado`, `Usuario con nombre ${this.usuario.nombre}`, 'success');
-        this.router.navigate(['/perfil']);
-      }
-    )
+    if (JSON.stringify(this.usuarioEditado) == "{}") {
+      Swal.fire("Campos vacíos", "Escribe en el campo que quieras editar", "info");
+    } else {
+      this.usuarioService.update(this.usuario.username, this.usuarioEditado).subscribe(
+        response => {
+          this.usuario = response;
+          this.usuarioService.guardarUsuario(this.usuario);
+          Swal.fire(`Perfil editado`, `Usuario con nombre ${this.usuario.nombre}`, 'success');
+          this.router.navigate(['/perfil']);
+        }
+      )
+    }
   }
 }
