@@ -8,12 +8,20 @@
                 </div>
 
                 <div class="col-8">
-
-                    <div>
-                        <h1>
-                            <img class="album-icon" width="32" height="32" class="mr-3" src="./assets/images/icons/album-icon.svg"> {{album.nombre}}
-                        </h1>
+                    <div class="row">
+                        <div class="col-9">
+                            <h1>
+                                <img class="album-icon" width="32" height="32" class="mr-3" src="./assets/images/icons/album-icon.svg"> {{album.nombre}}
+                            </h1>
+                        </div>
+                        <div class="col-3">
+                            <button class="btn btn-primary botonEditar" type="button" name="button"
+                                [routerLink]="['/editarPerfil']">
+                                Editar
+                            </button>
+                        </div>
                     </div>
+                    
                     <hr>
 
                     <form class="form-inline md-form form-sm mb-4 row text-center" *ngIf="cartas.length">
