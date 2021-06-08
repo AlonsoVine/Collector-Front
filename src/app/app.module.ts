@@ -24,6 +24,7 @@ import { BuscadorComponent } from './buscador/buscador.component';
 import { BuscadorUsuariosComponent } from './usuarios/buscador/buscador-usuarios/buscador-usuarios.component';
 import { CartaComponent } from './cartas/carta.component';
 import { AlbumesComponent } from './albumes/albumes.component';
+import { OpcionesAlbumComponent } from './albumes/opciones-album/opciones-album.component';
 
 import { UsuarioService } from './usuarios/usuario.service';
 import { AlbumesService } from './albumes/albumes.service';
@@ -54,6 +55,7 @@ const routes: Routes = [
   { path: 'albumes/:page', component: AlbumesComponent },
   { path: 'album/:id', component: AlbumComponent },
   { path: 'album/:id/page/:page', component: AlbumComponent },
+  { path: 'opcionesAlbum', component: OpcionesAlbumComponent },
   { path: 'editarPerfil', component: EditarPerfilComponent},
   { path: 'buscar', component: BuscadorComponent },
   { path: 'buscar/:tipo/:txt', component: BuscadorComponent },
@@ -80,6 +82,7 @@ const routes: Routes = [
     AlbumesComponent,
     AlbumComponent,
     BuscadorComponent,
+    OpcionesAlbumComponent,
 
     PaginadorAlbumesComponent,
     PaginadorAlbumComponent,

@@ -1,0 +1,34 @@
+<ul class="alert alert-danger" *ngIf="errores?.length>0">
+    <li *ngFor="let error of errores">{{error}}</li>
+</ul>
+<div class="row d-flex justify-content-center col-12 text-center">
+    <div class="card col-6 card1">
+        <div class="card-header row">
+            <div class="titulofiltros mt-2">Opciones Album {{album.nombre}}</div>
+        </div>
+        <div class="cad-body row col-12 text-center mx-0 alturaminima">
+            <div class="col-12">
+                <form #formularioOpciones="ngForm" method="post">
+
+                    <div class="form-group row mt-4">
+                        <label for="nombre" class="col-form-label col-6 text-left mt-1">Nombre</label>
+                        <div class="inputFormulario p 0">
+                            <input type="text" class="form-control" name="nombre">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-12 m-2">
+                            <button class="btn btn-primary" role="button" (click)='editar()'>
+                              <i class="bi bi-search"></i>
+                              Guardar
+                          </button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
