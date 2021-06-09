@@ -40,9 +40,9 @@ export class CartaService {
     );
   }
 
-  getByNombreGroupByOracle(nombre: string, page: number): Observable<any> {
+  getByNombreGroupByOracle(nombre: string, page: number, size:number): Observable<any> {
     let url = this.url + "/mtgdb/carta/nombre";
-    let params = new HttpParams().set("page", page.toString());
+    let params = new HttpParams().set("page", page.toString()).set("size", size.toString());
     return this.http.get(`${url}/${nombre}/oracle`, { params }).pipe(
       map((response: any) => {
         (response.content as Carta[]).map(carta => {
@@ -53,9 +53,9 @@ export class CartaService {
     );
   }
 
-  getByNombreGroupByIlust(nombre: string, page: number): Observable<any> {
+  getByNombreGroupByIlust(nombre: string, page: number, size: number): Observable<any> {
     let url = this.url + "/mtgdb/carta/nombre";
-    let params = new HttpParams().set("page", page.toString());
+    let params = new HttpParams().set("page", page.toString()).set("size", size.toString());
     return this.http.get(`${url}/${nombre}/ilust`, { params }).pipe(
       map((response: any) => {
         (response.content as Carta[]).map(carta => {
@@ -66,9 +66,9 @@ export class CartaService {
     );
   }
   
-  getByNombreGroupById(nombre: string, page: number): Observable<any> {
+  getByNombreGroupById(nombre: string, page: number, size: number): Observable<any> {
     let url = this.url + "/mtgdb/carta/nombre";
-    let params = new HttpParams().set("page", page.toString());
+    let params = new HttpParams().set("page", page.toString()).set("size", size.toString());
     return this.http.get(`${url}/${nombre}`, { params }).pipe(
       map((response: any) => {
         (response.content as Carta[]).map(carta => {
@@ -78,6 +78,8 @@ export class CartaService {
       })
     );
   }
+
+  ///////////// ALCANCE ////////////////
 
   getByOracleGroupByIlust(oracle_id: string, page: number): Observable<any> {
     let url = this.url + "/mtgdb/carta/oracle";

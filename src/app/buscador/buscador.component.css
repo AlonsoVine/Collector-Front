@@ -43,3 +43,86 @@ select {
     margin-top: 35px;
     margin-bottom: 35px;
 }
+
+
+/* CARTAS POR PÁGINA */
+
+input[type="number"] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+.number-input {
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    display: inline-flex;
+    background-color: whitesmoke;
+}
+
+.number-input,
+.number-input * {
+    box-sizing: border-box;
+}
+
+.number-input button {
+    outline: none;
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    margin: 0;
+    position: relative;
+    color: darkgray;
+}
+
+.number-input button:hover {
+    color: gray;
+}
+
+.number-input button:disabled {
+    color: lightgray;
+}
+
+.number-input button:after {
+    display: inline-block;
+    position: absolute;
+    font-family: "Roboto", "Helvetica Neue", sans-serif;
+    font-size: 20pt;
+    content: '˄';
+    transform: translate(-50%, -50%) rotate(180deg);
+    ;
+}
+
+.number-input button.plus:after {
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.number-input input[type=number] {
+    font-family: sans-serif;
+    max-width: 5rem;
+    padding: .5rem;
+    border: solid #ddd;
+    color: dimgray;
+    font-weight: lighter;
+    border-width: 0 2px;
+    font-size: 20pt;
+    height: 2rem;
+    width: 3rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.txt-select {
+    color: dimgray;
+    font-size: 12pt;
+}

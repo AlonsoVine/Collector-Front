@@ -42,6 +42,7 @@ export class AlbumComponent implements OnInit {
       if (localStorage.getItem('tam_fila') != null) {
         this.tam_fila = +localStorage.getItem('tam_fila');
       }
+
       this.id_album = +params.get('id');
       this.albumesService.getAlbum(this.id_album).subscribe(response => {
         this.album = response as Album;
@@ -70,7 +71,7 @@ export class AlbumComponent implements OnInit {
   }
 
   obtenerCartas(pagina: number): void {
-    this.albumService.getPaginaAlbum(this.id_album, pagina, this.tam_fila * 3).subscribe(response => {
+    this.albumService.getPaginaAlbum(this.id_album, pagina, this.tam_fila * this.pag_filas).subscribe(response => {
       this.cartas = response.content as Carta[];
       this.cartas.forEach(carta => {
         this.cartaService.getCarta(carta).subscribe(() => {

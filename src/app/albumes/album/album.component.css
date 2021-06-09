@@ -42,6 +42,12 @@ ul {
     transform: scale(110%);
 }
 
+#ajustes {
+    color: gray;
+    fill: gray;
+    display: inline-block;
+}
+
 
 /* CARTAS POR PÁGINA */
 
