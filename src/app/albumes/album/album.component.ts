@@ -15,8 +15,8 @@ import { ChangeDetectorRef } from '@angular/core';
 export class AlbumComponent implements OnInit {
   
   album: Album;
-  tam_fila: number = 4;
-  pag_filas: number = 3;
+  tam_fila: number = 3;
+
   id_album: number;
   cartas: Carta[];
   paginador: any;
@@ -71,7 +71,7 @@ export class AlbumComponent implements OnInit {
   }
 
   obtenerCartas(pagina: number): void {
-    this.albumService.getPaginaAlbum(this.id_album, pagina, this.tam_fila * this.pag_filas).subscribe(response => {
+    this.albumService.getPaginaAlbum(this.id_album, pagina, this.tam_fila ** 2).subscribe(response => {
       this.cartas = response.content as Carta[];
       this.cartas.forEach(carta => {
         this.cartaService.getCarta(carta).subscribe(() => {

@@ -17,8 +17,7 @@ export class BuscadorComponent implements OnInit {
   paginador: any;
   pagina: number;
 
-  tam_fila: number = 4;
-  pag_filas: number = 3;
+  tam_fila: number = 3;
 
   cargando: boolean = false;
 
@@ -88,7 +87,7 @@ export class BuscadorComponent implements OnInit {
   }
 
   getByNombreGroupByOracle () {
-    this.cartaService.getByNombreGroupByOracle(this.textoBuscado, this.pagina, this.tam_fila * this.pag_filas).subscribe(
+    this.cartaService.getByNombreGroupByOracle(this.textoBuscado, this.pagina, this.tam_fila ** 2).subscribe(
       response => {
         this.cartasBusqueda = response.content as Carta[];
         this.paginador = response;
@@ -98,7 +97,7 @@ export class BuscadorComponent implements OnInit {
   }
 
   getByNombreGroupByIlust () {
-    this.cartaService.getByNombreGroupByIlust(this.textoBuscado, this.pagina, this.tam_fila * this.pag_filas).subscribe(
+    this.cartaService.getByNombreGroupByIlust(this.textoBuscado, this.pagina, this.tam_fila ** 2).subscribe(
       response => {
         this.cartasBusqueda = response.content as Carta[];
         this.paginador = response;
@@ -108,7 +107,7 @@ export class BuscadorComponent implements OnInit {
   }
 
   getByNombreGroupById () {
-    this.cartaService.getByNombreGroupById(this.textoBuscado, this.pagina, this.tam_fila * this.pag_filas).subscribe(
+    this.cartaService.getByNombreGroupById(this.textoBuscado, this.pagina, this.tam_fila ** 2).subscribe(
       response => {
         this.cartasBusqueda = response.content as Carta[];
         this.paginador = response;

@@ -10,6 +10,10 @@ ul {
     border-radius: 10px;
 }
 
+.col-4 .carta {
+    border-radius: 15px;
+}
+
 .carta:hover {
     transform: scale(1.02);
     transition: transform .2s;
@@ -67,6 +71,7 @@ input[type=number]::-webkit-outer-spin-button {
     border-radius: 5px;
     display: inline-flex;
     background-color: whitesmoke;
+    padding: 2px;
 }
 
 .number-input,
