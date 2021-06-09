@@ -13,9 +13,10 @@ export class AlbumService {
     private http: HttpClient
   ) { }
 
-  getPaginaAlbum(id:number, page: number): Observable<any>{
+  getPaginaAlbum(id:number, page: number, size:number): Observable<any>{
     let url = this.url + "/album";
-    let params = new HttpParams().set("page", page.toString());
+    let params = new HttpParams().set("page", page.toString()).set("size", size.toString());
+
     return this.http.get(`${url}/${id}/${page}`,{params:params}).pipe(
       map((response: any) => {
         (response.content as Carta[]).map(carta => {

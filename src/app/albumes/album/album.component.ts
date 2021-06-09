@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Album } from './album';
 import { AlbumesService } from '../albumes.service';
 import { AlbumService } from './album.service';
 import { Carta } from '../../cartas/carta';
 import { CartaService } from '../../cartas/carta.service';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-album',
@@ -14,31 +15,39 @@ import { CartaService } from '../../cartas/carta.service';
 export class AlbumComponent implements OnInit {
   
   album: Album;
+  tam_fila: number = 4;
+  pag_filas: number = 3;
   id_album: number;
   cartas: Carta[];
   paginador: any;
+  pagina: number;
   cargando: boolean = true;
 
   constructor(
     private cartaService: CartaService,
     private albumService: AlbumService,
     private albumesService: AlbumesService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private ref: ChangeDetectorRef,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(params => {
-      let pagina = +params.get('page');
-      if (!pagina) {
-        pagina = 0;
+      this.pagina = +params.get('page');
+      if (!this.pagina) {
+        this.pagina = 0;
       }
 
+      if (localStorage.getItem('tam_fila') != null) {
+        this.tam_fila = +localStorage.getItem('tam_fila');
+      }
       this.id_album = +params.get('id');
       this.albumesService.getAlbum(this.id_album).subscribe(response => {
         this.album = response as Album;
       });
 
-      this.obtenerCartas(pagina);
+      this.obtenerCartas(this.pagina);
       
     })
   }
@@ -49,8 +58,19 @@ export class AlbumComponent implements OnInit {
     });
   }
 
+  recargar (num: number) {
+    this.tam_fila = this.tam_fila + num;
+    this.pagina = 0;
+    localStorage.setItem('tam_fila', this.tam_fila.toString());
+    this.ref.detectChanges();
+    if (num > 0 && this.paginador.last) {
+      this.router.navigate(['/album', this.album.id, 'page', this.pagina])
+    }
+    this.obtenerCartas(this.pagina);
+  }
+
   obtenerCartas(pagina: number): void {
-    this.albumService.getPaginaAlbum(this.id_album, pagina).subscribe(response => {
+    this.albumService.getPaginaAlbum(this.id_album, pagina, this.tam_fila * 3).subscribe(response => {
       this.cartas = response.content as Carta[];
       this.cartas.forEach(carta => {
         this.cartaService.getCarta(carta).subscribe(() => {
