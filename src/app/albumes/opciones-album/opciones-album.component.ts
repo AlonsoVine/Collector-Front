@@ -18,7 +18,6 @@ export class OpcionesAlbumComponent implements OnInit {
   id_album: number;
   errores: string[];
 
-
   album: Album;
   albumEditado: Album;
 
@@ -49,5 +48,9 @@ export class OpcionesAlbumComponent implements OnInit {
         this.router.navigate(['/album', this.album.id]);
       }
     )
+  }
+
+  descargarZip() {
+    window.location.assign(`aaaaaaaaaaaaaaa`); 
   }
 }

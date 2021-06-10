@@ -3,14 +3,14 @@
 </ul>
 <div class="row d-flex justify-content-center col-12 text-center">
     <div class="card col-6 card1">
-        
+
         <!---Título-->
         <div class="card-header row">
             <div class="titulofiltros mt-2">Opciones Album: {{album.nombre}}</div>
         </div>
         <div class="cad-body row col-12 text-center mx-0 alturaminima">
             <div class="col-12">
-                
+
                 <!---Editar nombre-->
                 <form class="row mt-3" #formularioOpciones="ngForm" method="post">
 
@@ -24,28 +24,29 @@
                     </div>
 
                     <div class="form-group col-2">
-                            <button class="btn btn-primary" role="button" (click)='editar()'>
+                        <button class="btn btn-primary" role="button" (click)='editar()'>
                               <i class="bi bi-search"></i>
                               Editar
                           </button>
                     </div>
                 </form>
                 <hr>
-                
+
                 <!---Insertar en masa-->
                 <div class="row">
 
                 </div>
 
-                
+
                 <!---Exportar album a zip-->
                 <div class="row">
-                    
+                    <a class="btn btn-primary" href="http://localhost:8080/collector/album/zip/{{album.id}}">Exportar</a>
+
                 </div>
 
                 <!---Eliminar Album-->
                 <div class="row">
-                    
+
                 </div>
 
 

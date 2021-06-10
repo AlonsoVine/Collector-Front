@@ -6,15 +6,16 @@
 
             <!-- Menú -->
             <div class="row d-flex align-items-center">
-                <div class="col-9">
+                <div class="pl-5 col-9 d-flex flex-nowrap align-items-center">
                     <!---Título Album-->
-                    <h1>
-                        <img class="album-icon" width="32" height="32" class="mr-3" src="./assets/images/icons/album-icon.svg"> {{album.nombre}}
+                    <img class="album-icon" width="32" height="32" class="mr-3" src="./assets/images/icons/album-icon.svg">
+                    <h1 class="mb-0">
+                        {{album.nombre}}
                     </h1>
                 </div>
 
                 <!---Enlace a opciones Album-->
-                <div class="col-1 d-flex justify-content-center">
+                <div class="col-1 d-flex justify-content-end">
                     <img [routerLink]="['/album', album.id, 'config']" class="text-center" id="ajustes" src="./assets/images/icons/fat-config-icon.svg" width="26" height="26">
                 </div>
 
@@ -28,20 +29,16 @@
                 </div>
             </div>
 
-            <hr>
-
-            <!---Consejo si no hay cartas en tu album-->
-            <form class="form-inline md-form form-sm mb-4 row text-center" *ngIf="cartas.length">
-                <input class="form-control form-control-sm mr-3 ml-4 col-9" type="text" placeholder="Busca entre las cartas del album" aria-label="Search" mdbInput>
-                <button type="submit" class="btn btn-primary col-2">
-                            <i class="bi bi-search"></i>
-                            <span class="fa fa-search"></span>
+            <!---Buscador-->
+            <form *ngIf="false && cartas.length" class="form-inline d-flex justify-content-between md-form form-sm mb-4 row">
+                <input class="form-control form-control-sm ml-3 col-9" type="text" placeholder="Busca entre las cartas del album" aria-label="Search" mdbInput>
+                <button type="submit" class="btn btn-primary col-2 py-1 mr-3">
                             Buscar
                         </button>
             </form>
 
             <!---Cartas del album-->
-            <div class="container">
+            <div class="container mt-4">
                 <div class="row">
                     <div class="col-12 d-flex justify-content-center">
                         <div class="alert alert-info mt-3" *ngIf="cartas?.length==0 && paginador!=null">
