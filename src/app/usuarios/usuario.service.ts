@@ -115,9 +115,11 @@ export class UsuarioService {
     );
   }
 
-  delete(username: string): Observable<Usuario> {
-    this.url = "http://localhost:8082/ecomove/v0.1/usuario";
-    return this.http.delete<Usuario>(`${this.url}/${username}`, { headers: this.httpHeaders }).pipe(
+  delete(username: string): Observable<any> {
+    let url = this.url + "/usuario";
+    let params = new HttpParams()
+      .set('user', username);
+    return this.http.delete(`${url}`, { params }).pipe(
       catchError(e => {
         console.error(e.error.mensaje);
         Swal.fire(e.error.mensaje, e.error.error, 'error')

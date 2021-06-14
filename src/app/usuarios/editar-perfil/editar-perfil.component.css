@@ -23,6 +23,7 @@ input:focus::placeholder {
 
 .card1,
 .card2 {
+    margin-top: 0.5em;
     border: solid 2px #0066A1;
     border-radius: 7px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);

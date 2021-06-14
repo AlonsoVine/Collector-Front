@@ -9,6 +9,7 @@ import { UsuarioService } from 'src/app/usuarios/usuario.service';
 import { AlbumService } from '../albumes/album/album.service';
 import { EdicionService } from './ediciones/edicion.service';
 import { Edicion } from './ediciones/edicion';
+import { Album } from '../albumes/album/album';
 
 @Component({
   selector: 'app-carta',
@@ -91,6 +92,26 @@ export class CartaComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.albumService.putCartaInAlbum(this.carta, result.value).subscribe(() => {
+          Swal.fire('Carta añadida', `La carta ${this.carta.name} ha sido añadida al album seleccionado correctamente`, 'success');
+        });
+      }
+    });
+  }
+
+  borrarCarta(): void {
+    Swal.fire({
+      title: '¿Está seguro?',
+      text: 'Realmente quieres borrar a ' + this.carta.name,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Borrar',
+      cancelButtonText: 'Cancelar',
+      reverseButtons: true
+    }).then((result) => {
+      alert("s")
+      if (result.isConfirmed) {
+        alert("b")
+        this.albumService.deleteCarta(this.carta).subscribe(() => {
           Swal.fire('Carta añadida', `La carta ${this.carta.name} ha sido añadida al album seleccionado correctamente`, 'success');
         });
       }

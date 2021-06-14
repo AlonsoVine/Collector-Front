@@ -40,8 +40,11 @@
                                         </ul>
                                         <p class="card-text">{{carta.text}}
                                         </p>
-                                        <button class="btn btn-primary w-100" role="button" (click)="guardarCarta()">
+                                        <button class="btn btn-primary w-50" role="button" (click)="guardarCarta()">
                                             Guardar
+                                        </button>
+                                        <button class="btn btn-secondary w-50" role="button" *ngIf="carta_en_album" (click)="borrarCarta()">
+                                            Eliminar
                                         </button>
                                     </div>
                                 </div>

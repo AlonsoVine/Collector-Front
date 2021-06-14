@@ -17,10 +17,12 @@ export class HeaderComponent implements DoCheck{
     private router:Router
   ){}
 
-  logueado:boolean=false;
+  logueado:boolean = false;
+  admin:boolean = false;
 
   ngDoCheck(){
-    this.logueado=sessionStorage.getItem("usuariologueado")?true:false;
+    this.logueado = sessionStorage.getItem("usuariologueado")?true:false;
+    this.admin = (this.usuarioService.usuario.rol == "admin");
   }
 
   logOut2(){

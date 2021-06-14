@@ -1,32 +1,32 @@
 <div class="card text-dark bg-light mb-3 mt-3">
-  <div class="card-header">Usuarios</div>
-  <div class="card-body text-primary">
-    <div class="my-2 text-left">
-      <button class="btn btn-rounden btn-info" type="button" name="button" [routerLink]="['/crearCuenta']">Crear Usuario</button>
+    <div class="card-header">Usuarios</div>
+    <div class="card-body text-primary">
+        <div class="my-2 text-left">
+            <button class="btn btn-rounden btn-info" type="button" name="button" [routerLink]="['/crearCuenta']">Crear Usuario</button>
+        </div>
+        <h2 class="card-title">Listado de Usuarios</h2>
+
+        <div class="alert alert-info" *ngIf="usuarios?.length==0">No hay registros en la base de datos</div>
+        <table class="table table-borderdered table-striped" *ngIf="usuarios?.length>0 ">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Nombre</th>
+                    <th>E-mail</th>
+                    <th>Creación</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let usuario of usuarios">
+                    <td>{{usuario.username}}</td>
+                    <td>{{usuario.nombre}}</td>
+                    <td>{{usuario.email}}</td>
+                    <td>{{usuario.createAt}}</td>
+                    <td><button type="button" name="button" class="btn btn-warning" (click)="delete(usuario)">Eliminar</button></td>
+                </tr>
+            </tbody>
+
+        </table>
+        <app-paginador-usuarios *ngIf="paginador" [paginador]="paginador"></app-paginador-usuarios>
     </div>
-    <h2 class="card-title">Listado de Usuarios</h2>
-
-    <div class="alert alert-info" *ngIf="usuarios?.length==0">No hay registros en la base de datos</div>
-    <table class="table table-borderdered table-striped" *ngIf="usuarios?.length>0 ">
-      <thead>
-        <tr>
-          <th>Username</th>
-          <th>Nombre</th>
-          <th>E-mail</th>
-          <th>Creación</th>
-          <th>Eliminar</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let usuario of usuarios">
-          <td>{{usuario.username}}</td>
-          <td>{{usuario.nombre}}</td>
-          <td>{{usuario.email}}</td>
-          <td>{{usuario.createAt}}</td>
-          <td><button type="button" name="button" class="btn btn-warning">eliminar</button></td>
-        </tr>
-      </tbody>
-
-    </table>
-    <app-paginador-usuarios *ngIf="paginador" [paginador]="paginador"></app-paginador-usuarios>
-</div>

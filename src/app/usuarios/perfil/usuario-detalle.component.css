@@ -1,12 +1,31 @@
-.card{
-border-color: #0066A1;
-border-style: solid;
-border-width: 2px;
+.card {
+    margin-top: 2em;
+    border: solid 2px #0066A1;
+    border-radius: 7px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
 
+.card-header {
+    border-width: 2px solid #0066A1;
 }
-.card-header{
-    border-width: 2px solid  #0066A1;
+
+span,
+h3 {
+    color: #0066A1;
 }
-span,h3{
-    color: #0066A1 ;  
+
+.list-group-item {
+    padding-left: 5.5em;
+    padding-right: 6.5em;
+    color: gray !important;
+}
+
+.list-group-item span {
+    margin-left: 5em;
+    float: right;
+    font-size: 12pt;
+}
+
+.botonEditar {
+    padding: 3px 12px;
 }

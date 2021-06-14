@@ -3,31 +3,36 @@
     <div class="col-3"></div>
 
     <div class="card col-6 row">
-        <div class="card-header row">
+        <div class="card-header row pt-4">
             <div class="col-1"></div>
             <div class=" col-7 primerTitulo mt-2">
-                <h2 class="mb-0 mt-1">
-                    <img class="user-album-icon" width="35" height="35" class="mr-3"
-                        src="./assets/images/icons/user-album-icon.svg"> {{usuario.username}}
+                <h2 class="mb-0 mt-2">
+                    <img class="user-album-icon" width="35" height="35" class="mr-3" src="./assets/images/icons/user-album-icon.svg"> {{usuario.username}}
                 </h2>
             </div>
             <div class="col-3">
-                <button class="btn btn-primary botonEditar my-2" type="button" name="button"
-                    [routerLink]="['/editarPerfil']">
-                    Editar
+                <button class="btn btn-primary botonEditar mb-2 mt-3" type="button" name="button" [routerLink]="['/editarPerfil']">
+                    <img width="16" height="16" src="./assets/images/icons/config-icon.svg">
                 </button>
             </div>
         </div>
-        <div class=" container row">
+        <div class="w-100 container">
             <div class="card-body text-dark">
-                <h3 class="card-title">Nombre:</h3>
-                <p class="card-text ml-3">{{usuario.nombre}}</p>
-                <h3 class="card-title">E-mail:</h3>
-                <p class="card-text ml-3">{{usuario.email}}</p>
-                <h3 class="card-title">Creación cuenta:</h3>
-                <p class="card-text ml-3">{{usuario.createAt}}</p>
-                <h3 class="card-title">Numero de álbumes:</h3>
-                <p class="card-text ml-3">{{numAlbums}}</p>
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        Nombre:<span>{{usuario.nombre}}</span>
+                    </li>
+                    <li class="list-group-item">
+                        E-mail:<span>{{usuario.email}}</span>
+                    </li>
+                    <li class="list-group-item">
+                        Creación de la cuenta:<span>{{usuario.createAt}}</span>
+                    </li>
+                    <li class="list-group-item">
+                        Número de álbumes:<span>{{numAlbums}}</span>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

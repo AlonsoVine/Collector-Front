@@ -22,7 +22,7 @@ export class CrearPerfilComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.usuario = this.usuarioService.usuario;
+    this.usuario = new Usuario();
   }
 
   create(): void {

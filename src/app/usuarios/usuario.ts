@@ -6,5 +6,6 @@ export class Usuario {
   nombre: string;
   password: string;
   createAt: string;
+  rol: string;
 
 }
