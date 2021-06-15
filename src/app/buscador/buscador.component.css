@@ -131,3 +131,9 @@ input[type=number]::-webkit-outer-spin-button {
     color: dimgray;
     font-size: 12pt;
 }
+
+.deck {
+    margin-top: 2em;
+    opacity: 10%;
+    transform: rotate(12.5deg);
+}

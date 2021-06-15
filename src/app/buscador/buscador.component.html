@@ -42,6 +42,10 @@
                         <div class="spinner-border text-primary loading" role="status" *ngIf="cargando">
                             <span class="sr-only">Loading...</span>
                         </div>
+
+                        <div *ngIf="cartasBusqueda.length == 0 && !cargando">
+                            <img src="./assets/images/icons/deck-icon.png" class="deck">
+                        </div>
                     </div>
 
                     <ul class="listaCartas" *ngIf="!cargando">
