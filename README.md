@@ -1,4 +1,4 @@
-# Album-Collector Front-end
+## Album-Collector Front-end
 
 Manual de despliegue del front-end de Album Collector.
 
