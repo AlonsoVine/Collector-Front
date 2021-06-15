@@ -13,6 +13,8 @@ import { tap } from 'rxjs/operators';
 })
 export class InicioComponent implements OnInit {
 
+  busquedaCartas:string;
+
   constructor(
   ) { }
 

@@ -1,40 +1,38 @@
 <div class="row">
-  <div class="col">
-    <div class="container">
-      <div class="row">
-        <div class="col-2">
-          <img src="">
-        </div>
+    <div class="col">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <img src="">
+                </div>
 
-        <div class="col-8">
-          <h1>Inicio</h1>
-          <hr>
-          <form class="form-inline md-form form-sm">
-            <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Cartas" aria-label="Search"
-              mdbInput>
-            <button type="submit" class="btn btn-primary">
+                <div class="col-8">
+                    <h1>Inicio</h1>
+                    <hr>
+                    <form class="form-inline md-form form-sm">
+                        <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Cartas" aria-label="Search" [(ngModel)]="busquedaCartas" mdbInput>
+                        <button type="submit" class="btn btn-primary" routerLink="/buscar/oracle/{{busquedaCartas}}">
               <i class="bi bi-search"></i>
               <span class="fa fa-search"></span>
               Buscar
             </button>
-          </form>
-          <hr>
-          <form class="form-inline md-form form-sm">
-            <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Usuarios" aria-label="Search"
-              mdbInput>
-            <button type="submit" class="btn btn-primary" routerLink="/buscarUsuarios">
+                    </form>
+                    <hr>
+                    <form class="form-inline md-form form-sm">
+                        <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Usuarios" aria-label="Search" mdbInput>
+                        <button type="submit" class="btn btn-primary" routerLink="/buscarUsuarios">
               <i class="bi bi-search"></i>
               <span class="fa fa-search"></span>
               Buscar
             </button>
-          </form>
+                    </form>
 
-        </div>
+                </div>
 
-        <div class="col-2">
-          <img src="">
+                <div class="col-2">
+                    <img src="">
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
