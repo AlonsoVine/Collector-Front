@@ -35,3 +35,11 @@ ng serve -o
 
 
 Para ver la aplicación ejecutandose, dirigete a  `http://localhost:4200`  en un navegador.
+
+
+
+## Copyright
+
+Copyright 2021, Miguel Bautista Pérez y Alonso Viñé Barrancos
+
+Todos los derechos reservados
