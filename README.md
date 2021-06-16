@@ -21,7 +21,7 @@ Entramos en la carpeta del front-end con e instalamos las dependencias necesaria
 
 ````
 cd Collector-Front
-npm install
+npm install --force
 ````
 
 
